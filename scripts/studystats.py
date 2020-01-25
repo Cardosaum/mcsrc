@@ -21,6 +21,14 @@ currentBooks = {
 				"R for Data Science": {
 											"totalPages": 520,
 											"currentPage": 40
+				},
+				"HandsOn Programming with R": {
+											"totalPages": 247,
+											"currentPage": 0
+				},
+				"Linear Algebra - Foundations to Frontiers": {
+											"totalPages": 469,
+											"currentPage": 39
 				}
 				}
 
@@ -144,18 +152,28 @@ def updatePathWay(file):
 					statusFile = re.compile(r'\sOK')
 					sfMo = statusFile.search(line)
 					if not sfMo:
-						print(line)
+						# print(name, infos)
+						# print(line)
 
 						# Group 1 of this regex retur the current page
 						updateCurrentPageRe = re.compile(r'''
 															\/week\s*\| # capture /week 
 															\s*(\d+)      # capture  <digits>
-															\s*pages?   # capture page OR pages
+															\s*pages?\s*\|   # capture page OR pages
+															\s*([\d.])+%+\s* # capture percentage
 														''', re.VERBOSE)
 						updateCurrentPageMo = updateCurrentPageRe.search(line)
 						# print('-'*20)
 						# print(updateCurrentPageRe.sub(f'''/week | {str(infos["currentPage"])} pages''', line))
-						line = updateCurrentPageRe.sub(f'''/week | {str(infos["currentPage"])} pages''', line) 
+
+						# Calculate percentage of progress
+						try:
+							# print(infos)
+							# print(updateCurrentPageMo)
+							calculatePercent = (infos["currentPage"]/infos["totalPages"])*100
+						except ZeroDivisionError:
+							calculatePercent = 0
+						line = updateCurrentPageRe.sub(f'''/week | {str(infos["currentPage"])} pages | {float(calculatePercent):.2f}%\n''', line) 
 						# print('='*20)
 
 				# performs write action
