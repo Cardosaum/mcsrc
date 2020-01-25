@@ -180,7 +180,7 @@ def updatePathWay(file):
 				f.write(line)
 
 
-updatePathWay('/home/matheus/mcs/study/bioinformatics_pathway/mcs_self_paced.md')
+# updatePathWay('/home/matheus/mcs/study/bioinformatics_pathway/mcs_self_paced.md')
 
 # getBooksInfos(os.path.join('..', 'data', 'books_logs.csv'))
 
