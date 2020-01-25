@@ -10,12 +10,18 @@ import datetime
 import csv
 import pprint
 import pandas as pd
+import re
+import in_place
 
 currentBooks = {
 				"OpenIntro Statistics": {
 											"totalPages": 422,
 											"currentPage": 0
-										}
+										},
+				"R for Data Science": {
+											"totalPages": 520,
+											"currentPage": 40
+				}
 				}
 
 booksAdd = (('OpenIntro Statistics', 422), ('R for Data Science', 520), ('HandsOn Programming with R', 247), ('Linear Algebra - Foundations to Frontiers', 469))
@@ -66,7 +72,7 @@ def saveLog(infos:list):
 	"""
 	Takes `infos` and save to logs file
 	"""
-	
+
 	with open(os.path.join('..', 'data', 'books_logs.csv'), 'a') as log:
 		w = csv.writer(log)
 		w.writerow(infos)
@@ -108,8 +114,57 @@ def getBooksInfos(fileInfo):
 		# TODO: use pandas to select current page (the highest `currentPage` number for each book)
 
 
+def updatePathWay(file):
+	""" 
+	Parse `file`, found corresponding books that are beeing read currently and update status
+	example file parsed: https://github.com/Cardosaum/bioinformatics_pathway/blob/master/mcs_self_paced.md
+	"""
+	# TODO: make this function work and replace `booksInfos` to use the returned value 
+	# booksInfos = getBooksInfos(fileInfo)
+	booksInfos = currentBooks
 
-getBooksInfos(os.path.join('..', 'data', 'books_logs.csv'))
+	for name, infos in currentBooks.items():
+		# print(name, infos)
+
+
+		with in_place.InPlace(file, backup_ext=".bak") as f:
+
+			# Regex to find lines that correspond to book `name`
+			nRe = re.compile(name)
+
+			for line in f:
+				nMo = nRe.search(line)
+
+				# if line contain book `name`:
+				if nMo:
+
+					# we need to skip lines that contain status for book.
+					# see layout of file beeing parsed: https://github.com/Cardosaum/bioinformatics_pathway/blob/master/mcs_self_paced.md
+
+					statusFile = re.compile(r'\sOK')
+					sfMo = statusFile.search(line)
+					if not sfMo:
+						print(line)
+
+						# Group 1 of this regex retur the current page
+						updateCurrentPageRe = re.compile(r'''
+															\/week\s*\| # capture /week 
+															\s*(\d+)      # capture  <digits>
+															\s*pages?   # capture page OR pages
+														''', re.VERBOSE)
+						updateCurrentPageMo = updateCurrentPageRe.search(line)
+						# print('-'*20)
+						# print(updateCurrentPageRe.sub(f'''/week | {str(infos["currentPage"])} pages''', line))
+						line = updateCurrentPageRe.sub(f'''/week | {str(infos["currentPage"])} pages''', line) 
+						# print('='*20)
+
+				# performs write action
+				f.write(line)
+
+
+updatePathWay('/home/matheus/mcs/study/bioinformatics_pathway/mcs_self_paced.md')
+
+# getBooksInfos(os.path.join('..', 'data', 'books_logs.csv'))
 
 # g = askCurrentPage(list(currentBooks.items())[0])
 
