@@ -21,6 +21,10 @@ currentBooks = {
 booksAdd = (('OpenIntro Statistics', 422), ('R for Data Science', 520), ('HandsOn Programming with R', 247), ('Linear Algebra - Foundations to Frontiers', 469))
 
 def inputInt(text):
+	""" 
+	Validate user input
+	"""
+
 	while True:
 		try:
 			userInput = int(input(text))
@@ -31,6 +35,11 @@ def inputInt(text):
 	return userInput
 
 def askCurrentPage(book:tuple):
+	"""
+	User interface function,
+
+	Aks the user for infos and update the log file
+	"""
 
 	bookName = book[0]
 	bookInfos = book[1]
@@ -54,12 +63,19 @@ def askCurrentPage(book:tuple):
 
 
 def saveLog(infos:list):
+	"""
+	Takes `infos` and save to logs file
+	"""
+	
 	with open(os.path.join('..', 'data', 'books_logs.csv'), 'a') as log:
 		w = csv.writer(log)
 		w.writerow(infos)
 
 
 def createBooksInfos(filePath, booksAdd:tuple, fileName='books_infos.csv'):
+	""" 
+	Creates the first info file
+	"""
 	file = os.path.join(filePath, fileName)
 	booksAttributesHeader = ["name", "totalPages"]
 	with open(file, 'w') as f:
@@ -67,11 +83,29 @@ def createBooksInfos(filePath, booksAdd:tuple, fileName='books_infos.csv'):
 		w.writerows([g for g in booksAdd])
 
 def getBooksInfos(fileInfo):
+	"""
+	This Function read the logs.csv file and return a dictionary with the following contents:
+
+	{
+
+		"Book1": {
+			"totalPages": x
+			"currentPage": y
+		},
+
+		"Book2": {
+			"totalPages": w
+			"currentPage": z
+		}
+
+	}
+	"""
 	with open(fileInfo, 'r') as f:
 		r = list(csv.reader(f))
 		pprint.pprint(r)
 		d = pd.DataFrame(r)
 		print(d.head())
+		# TODO: use pandas to select current page (the highest `currentPage` number for each book)
 
 
 
