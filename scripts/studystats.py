@@ -48,6 +48,19 @@ def inputInt(text):
 			print()
 	return userInput
 
+def askCurrentPageAllBooks(book:pd.DataFrame='x'):
+	"""
+	User interface function,
+
+	Aks the user for infos and update the log file
+	"""
+	dataBooks = pd.read_csv(os.path.join('..', 'data', 'books_data.csv'))
+	for row in dataBooks.:
+		print(row)
+
+askCurrentPageAllBooks()
+
+
 def askCurrentPage(book:tuple):
 	"""
 	User interface function,
