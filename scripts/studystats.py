@@ -55,11 +55,17 @@ def askCurrentPageAllBooks(book:pd.DataFrame='x'):
 	Aks the user for infos and update the log file
 	"""
 	dataBooks = pd.read_csv(os.path.join('..', 'data', 'books_data.csv'))
-	for row in dataBooks.:
-		print(row)
+	booksLogs = pd.read_csv(os.path.join('..', 'data', 'books_logs.csv'))
+	bookNames = set()
+	for index, row in dataBooks.iterrows():
+		print('='*30)
+		print(f"· Book: {row['name']}")
+		print(row['name'], row['totalPages'])
+		bookNames.add(row['name'])
+	print(bookNames)
+	print(booksLogs.loc[:, ['name', 'currentPage']].max())
 
 askCurrentPageAllBooks()
-
 
 def askCurrentPage(book:tuple):
 	"""
