@@ -10,10 +10,13 @@ import csv
 
 
 
-# class Book(bookFilteredDataFrame, book):
+# class Book(books_file, books_markdown, book):
 # 	"""Take a unique Book in a pd.DataFrame and perform stats fill for attributes like 'currentPage', etc."""
-# 	def __init__(self, name, totalPages, currentPage):
-# 		self.name = book
+# 	def __init__(self):
+# 		self.booksDataFrame = pd.read_csv(books_file)
+# 		self.books_names = getBooksNames(booksDataFrame)
+# 		self.name = self.book
+# 		self.booksDataFrame = getBookDataFrame(booksDataFrame, book)
 		
 def getBooksNames(booksDataFrame):
 	books_names = booksDataFrame.name.unique()
@@ -154,6 +157,9 @@ def performBookUpdateMarkdown(bookDataFrame, books_markdown, book, bookStats):
 			# Performs write action
 			f.write(line)
 
+def getAllData(books_file):
+	booksDataFrame = pd.read_csv(books_file)
+	books_names = getBooksNames(booksDataFrame)
 
 def mainBooks(books_file, books_markdown):
 	
@@ -174,14 +180,13 @@ def mainBooks(books_file, books_markdown):
 
 		# TODO: show aproximatly time remaining
 		# TODO: perform update in log file
-		
-		currentPage = 10
-
 		if currentPage:
-			# print('log file updated'.upper().center(50, '+'))
 			performBooksFileUpdate(bookDataFrame, currentPage, books_file)
+			booksDataFrame = pd.read_csv(books_file)
+			bookDataFrame =  getBookDataFrame(booksDataFrame, book)
 			bookStats = getBookStats(bookDataFrame)
 			performBookUpdateMarkdown(bookDataFrame, books_markdown, book, bookStats)
+			print('log file updated'.upper().center(50, '+'))
 
 
 if __name__ == '__main__':
