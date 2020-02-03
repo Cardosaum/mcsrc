@@ -23,7 +23,7 @@ for file in directory.rglob('*'):
 		print(file)
 		print(f)
 		print(mo)
-		print('='*30)
+		prilnt('='*30)
 		# print(g)
 		g = list(clean.sub('', f).strip())
 		[non.add(x) for x in g]

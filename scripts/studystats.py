@@ -41,9 +41,16 @@ def inputInt(text):
 
 	while True:
 		try:
-			userInput = int(input(text))
+			userInput = input(text).strip()
+			if userInput.isnumeric():
+				userInput = int(userInput)
+			elif userInput == '':
+				# TODO: 
+				pass
 			break
+
 		except ValueError:
+			print(userInput)
 			print('Please, you need to insert a integer number!')
 			print()
 	return userInput
@@ -65,7 +72,6 @@ def askCurrentPageAllBooks(book:pd.DataFrame='x'):
 	print(bookNames)
 	print(booksLogs.loc[:, ['name', 'currentPage']].max())
 
-askCurrentPageAllBooks()
 
 def askCurrentPage(book:tuple):
 	"""
@@ -198,12 +204,13 @@ def updatePathWay(file):
 				# performs write action
 				f.write(line)
 
+# askCurrentPageAllBooks()
 
 # updatePathWay('/home/matheus/mcs/study/bioinformatics_pathway/mcs_self_paced.md')
 
 # getBooksInfos(os.path.join('..', 'data', 'books_logs.csv'))
 
-# g = askCurrentPage(list(currentBooks.items())[0])
+# g = [ askCurrentPage(list(currentBooks.items())[x]) for x in range(len(currentBooks)) ]
 
 # print(f'\n\n{g}')
 
