@@ -191,6 +191,7 @@ def mainBooks(books_file, books_markdown):
 
 if __name__ == '__main__':
 
+	os.chdir('/home/matheus/mcs/study/code/python/mcsrc/scripts/')
 	# TODO: remove `books_file` from here, and catch tthis info parsing `sys.arg` or something similar
 	books_file = os.path.join('..', 'data', 'books_logs.csv')
 	books_markdown = os.path.join('..', '..', '..', '..', 'bioinformatics_pathway', 'mcs_self_paced.md')

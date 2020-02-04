@@ -2,4 +2,4 @@
 
 cd $HOME/mcs/study/code/python/mcsrc/scripts/
 
-python3 books.py
+./books.py
