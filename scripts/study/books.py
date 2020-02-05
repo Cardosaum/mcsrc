@@ -3,12 +3,16 @@
 import os
 import re
 import datetime
+import itertools
 import pandas as pd
 import in_place
 import csv
+import pathlib
 
 
-
+repo_name = 'mcsrc'
+books_logs = 'books_logs.csv'
+studyFolder = '/home/matheus/mcs/study'
 
 # class Book(books_file, books_markdown, book):
 # 	"""Take a unique Book in a pd.DataFrame and perform stats fill for attributes like 'currentPage', etc."""
@@ -189,10 +193,25 @@ def mainBooks(books_file, books_markdown):
 			print('log file updated'.upper().center(50, '+'))
 
 
+def findFile(fileName, parentDirectory=repo_name):
+	""" Find `filename` inside `repo_name` directory """
+	parent = pathlib.Path.cwd().parent
+	if parentDirectory == repo_name:
+		parent = pathlib.Path.joinpath(pathlib.Path(str(parent)[:str(parent).find(repo_name)]), repo_name)
+		file = list(parent.rglob(f'*{fileName}'))
+	else:
+		parent = pathlib.Path(str(parent)[:str(parent).find(repo_name)])
+		file = list(pathlib.Path(parentDirectory).rglob(f'*{fileName}'))
+
+	assert len(file) == 1, f"Expected 1 file found, {len(file)} was found\nFiles Found with match {fileName}:\n\t{file}"
+	return file[0]
+
+
 if __name__ == '__main__':
 
-	os.chdir('/home/matheus/mcs/study/code/python/mcsrc/scripts/')
-	# TODO: remove `books_file` from here, and catch tthis info parsing `sys.arg` or something similar
-	books_file = os.path.join('..', 'data', 'books_logs.csv')
-	books_markdown = os.path.join('..', '..', '..', '..', 'bioinformatics_pathway', 'mcs_self_paced.md')
+	os.chdir('/home/matheus/mcs/study/code/python/mcsrc/scripts/study')
+
+	# # TODO: remove `books_file` from here, and catch tthis info parsing `sys.arg` or something similar
+	books_file = findFile(books_logs)
+	books_markdown = findFile('mcs_self_paced.md', parentDirectory=studyFolder)
 	mainBooks(books_file, books_markdown)
