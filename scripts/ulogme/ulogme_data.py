@@ -68,10 +68,6 @@ def getRootProps():
 	return mor
 
 
-
-
-
-
 def getWindowProps(winID):
 	""" Get this window properties:
 	
@@ -139,7 +135,7 @@ def getWindowProps(winID):
 
 
 
-# work in each prop, and handle specifities, especificaly with `WM_CLASS`
+	# work in each prop, and handle specifities, especificaly with `WM_CLASS`
 
 # getWindowProps('0x0')
 getWindowProps('0x2e00003')
