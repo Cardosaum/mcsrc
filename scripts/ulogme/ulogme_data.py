@@ -2,6 +2,7 @@
 
 import subprocess
 import re
+import csv
 
 # TODO: collect data
 
@@ -63,7 +64,8 @@ def getRootProps():
 				break
 
 	# Convert list of matched objects in list of tuple of strings `(key, value)`
-	mor = [tuple(mor[i].groups()) for i in range(len(mor))]
+	mor = [ tuple(mor[i].groups()) for i in range(len(mor)) ]
+	mor = [ (str('root-'+mor[i][0]), str(mor[i][1])) for i in range(len(mor)) ]
 
 	return mor
 
@@ -128,8 +130,8 @@ def getWindowProps(winID):
 				break
 
 	# Convert list of matched objects in list of tuple of strings `(key, value)`
-	mow = [tuple(mow[i].groups()) for i in range(len(mow))]
-	mow = [ (str('win-'+mow[i][0]), str(mow[i][1]))for i in range(len(mow))]
+	mow = [ tuple(mow[i].groups()) for i in range(len(mow)) ]
+	mow = [ (str('win-'+mow[i][0]), str(mow[i][1])) for i in range(len(mow)) ]
 
 	return mow
 
@@ -137,8 +139,21 @@ def getWindowProps(winID):
 
 	# work in each prop, and handle specifities, especificaly with `WM_CLASS`
 
+def sortNested(nestedList, nth):
+	""" sort nested list in this way:
+
+	Input : [['rishav', 10], ['akash', 5], ['ram', 20], ['gaurav', 15]]
+	Output : [['akash', 5], ['rishav', 10], ['gaurav', 15], ['ram', 20]]
+
+	Input : [['452', 10], ['256', 5], ['100', 20], ['135', 15]]
+	Output : [['256', 5], ['452', 10], ['135', 15], ['100', 20]]
+
+	copied from: https://www.geeksforgeeks.org/python-sort-list-according-second-element-sublist/
+	"""
+
+	return(sorted(nestedList, key=lambda x: x[nth]))
+
 # getWindowProps('0x0')
-getWindowProps('0x2e00003')
 # print(''.center(70, '='))
 # getWindowProps('0x2400007')
 # getWindowProps('0x4200007')
@@ -147,10 +162,18 @@ getWindowProps('0x2e00003')
 # getWindowProps('0x5a00003')
 # getWindowProps('0x4000007')
 # getWindowProps('0x4c00007')
-getRootProps()
+# getRootProps()
 
 
 
+
+
+
+a = getWindowProps('0x2e00003')
+b = getRootProps()
+c = sortNested(a + b, 0)
+[ print(i, end=',') for i in c ]
+createLogFile('test_log.csv')
 
 
 
@@ -184,4 +207,10 @@ getRootProps()
 
 # TODO: tidy data
 	# TODO: chose beteween csv or json (or something else)
+	# TODO: write a decent file handler
+def createLogFile(file):
+	header = 'root-_NET_ACTIVE_WINDOW,root-_NET_CLIENT_LIST,root-_NET_CURRENT_DESKTOP,root-_NET_DESKTOP_NAMES,root-_NET_NUMBER_OF_DESKTOPS,root-_NET_WM_NAME,win-WM_CLASS,win-WM_CLIENT_MACHINE,win-WM_NAME,win-WM_WINDOW_ROLE,win-_NET_WM_DESKTOP,win-_NET_WM_NAME,win-_NET_WM_STATE,win-_NET_WM_WINDOW_TYPE'.split(',')
+	with open(file, 'w') as f:
+		w = csv.writer(f)
+		w.writerow(header)
 	# TODO: write data to file
