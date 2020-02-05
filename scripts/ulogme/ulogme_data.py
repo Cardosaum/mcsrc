@@ -7,6 +7,8 @@ import csv
 # TODO: collect data
 
 	# TODO: window properties
+	# TODO: maybe is better to return a dict rather than a nested list?
+	# functions `getRootProps` and `getWindowProps`
 
 def getRootProps():
 	""" Get this window properties:
@@ -153,6 +155,13 @@ def sortNested(nestedList, nth):
 
 	return(sorted(nestedList, key=lambda x: x[nth]))
 
+	# TODO: property `_NET_CLIENT_LIST` show id for all open windows. Maybe it's useful?
+def loopOpenWindows():
+	""" loop for all open windows and return their properties """
+
+	# get open windows
+	ow = getRootProps()
+
 # getWindowProps('0x0')
 # print(''.center(70, '='))
 # getWindowProps('0x2400007')
@@ -162,43 +171,15 @@ def sortNested(nestedList, nth):
 # getWindowProps('0x5a00003')
 # getWindowProps('0x4000007')
 # getWindowProps('0x4c00007')
-# getRootProps()
+print(getRootProps())
+# a = getWindowProps('0x2e00003')
+# b = getRootProps()
+# c = sortNested(a + b, 0)
+# [ print(i, end=',') for i in c ]
+# createLogFile('test_log.csv')
 
 
 
-
-
-
-a = getWindowProps('0x2e00003')
-b = getRootProps()
-c = sortNested(a + b, 0)
-[ print(i, end=',') for i in c ]
-createLogFile('test_log.csv')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	# TODO: property `_NET_CLIENT_LIST` show id for all open windows. Maybe it's useful?
 
 
 
