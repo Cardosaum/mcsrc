@@ -6,10 +6,12 @@ import re
 import csv
 import collections
 import ulogme_setup
+import time
 
 
 logPath = ulogme_setup.logPath
-logFile = 
+logFile = ulogme_setup.logFile
+
 
 ###########################
 
@@ -190,8 +192,7 @@ def assertRegexMatch(regexList, listSearch, ret="mo"):
 			nmo.append(i)
 
 	if nmo:
-		print(nmo)
-		with open(lf, mode='a') as l:
+		with open(logFile, mode='a') as l:
 			[ l.write(i + '\n') for i in nmo ]
 
 
@@ -262,79 +263,12 @@ def loopOpenWindows():
 	return owp
 
 
-# pprint.pprint(getWindowProps('0x5600001'))
-# pprint.pprint(getWindowProps('0x3400003'))
-# pprint.pprint(getWindowProps('0x1600007'))
-# pprint.pprint(getWindowProps('0x2800007'))
-"""
-###################
-#
-# Corrigir regex 
-#
-###################
-
-#####
-##### essas são propriedades da janela aberta:
-#####
-
-WM_NAME(STRING) = "~ : htop"
-_NET_WM_NAME(UTF8_STRING) = "~ : htop — Konsole"
-_MOTIF_WM_HINTS(_MOTIF_WM_HINTS) = 0x3, 0x3e, 0x7e, 0x0, 0x0
-_NET_WM_WINDOW_TYPE(ATOM) = _NET_WM_WINDOW_TYPE_NORMAL
-_XEMBED_INFO(_XEMBED_INFO) = 0x0, 0x1
-WM_CLIENT_LEADER(WINDOW): window id # 0x1600009
-WM_HINTS(WM_HINTS):
-                Client accepts input or input focus: True
-                Initial state is Normal State.
-                window id # of group leader: 0x1600009
-WM_CLIENT_MACHINE(STRING) = "mcsarch"
-_NET_WM_PID(CARDINAL) = 5282
-_NET_WM_SYNC_REQUEST_COUNTER(CARDINAL) = 23068680
-WM_CLASS(STRING) = "konsole", "konsole"
+with open(lj.json, 'a') as f:
+	while True:
+		f.write(s)
+		time.sleep(2)
 
 
-#####
-##### essas são as propriedades retornadas pela função
-#####
-
-win-_NET_WM_STATE ['_NET_WM_STATE_MAXIMIZED_HORZ, _NET_WM_STATE_MAXIMIZED_VERT']
-win-_NET_WM_DESKTOP ['1']
-win-WM_WINDOW_ROLE ['"MainWindow#1"']
-win-_NET_WM_WINDOW_TYPE ['_NET_WM_WINDOW_TYPE_NORMAL']
-win-WM_NAME ['htop"']
-win-_NET_WM_NAME ['htop — Konsole"']
-win-WM_CLIENT_MACHINE ['"mcsarch"']
-win-WM_CLASS ['"konsole", "konsole"']
-
-
-## Variável `win-_NET_WM_NAME` está sendo retornada errada
-
-"""
-getRootProps()
-# loopOpenWindows()
-# getWindowProps('0x0')
-# print(''.center(70, '='))
-getWindowProps('0x4600001')
-# print(''.center(70, '='))
-# getWindowProps('0x5a00003')
-# getWindowProps('0x4000007')
-# getWindowProps('0x4c00007')
-# print(getRootProps())
-# getRootProps()
-# a = getWindowProps('0x2e00003')
-# b = getRootProps()
-# c = sortNested(a + b, 0)
-# [ print(i, end=',') for i in c ]
-# createLogFile('test_log.csv')
-
-
-# w = loopOpenWindows()
-
-# for k, v in w.items():
-# 	print(k)
-# 	pprint.pprint(v)
-
-# print(w['0x2a00003']['win-WM_NAME'])
 
 	# TODO: keyboard input
 	# TODO: mouse input (?)
@@ -343,8 +277,5 @@ getWindowProps('0x4600001')
 	# TODO: chose beteween csv or json (or something else)
 	# TODO: write a decent file handler
 def createLogFile(file):
-	header = 'root-_NET_ACTIVE_WINDOW,root-_NET_CLIENT_LIST,root-_NET_CURRENT_DESKTOP,root-_NET_DESKTOP_NAMES,root-_NET_NUMBER_OF_DESKTOPS,root-_NET_WM_NAME,win-WM_CLASS,win-WM_CLIENT_MACHINE,win-WM_NAME,win-WM_WINDOW_ROLE,win-_NET_WM_DESKTOP,win-_NET_WM_NAME,win-_NET_WM_STATE,win-_NET_WM_WINDOW_TYPE'.split(',')
-	with open(file, 'w') as f:
-		w = csv.writer(f)
-		w.writerow(header)
 	# TODO: write data to file
+	pass
