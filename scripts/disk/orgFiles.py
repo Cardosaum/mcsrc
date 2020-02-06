@@ -13,6 +13,7 @@ dirNonExt = 'unknown_ext'
 dirSubFolder = 'subDirectories'
 termLength = 70
 wantedDir = 'Downloads'
+preserveDirectories = ['Telegram Desktop', dirSubFolder, extName]
 
 def getFiles(path, onlyFiles=True):
 	""" List all files inside `path` and return a list of 'pathlib.PosixPath' objects """
@@ -109,9 +110,7 @@ def mvDirectories(directories):
 	""" Move all directories to subfolder `subDirectories` """
 
 	for d in directories:
-		if d.name == dirSubFolder:
-			continue
-		elif d.name == extName:
+		if d in preserveDirectories:
 			continue
 		oldDirPath = d.resolve()
 		newDirPath = pathlib.Path.joinpath(d.parent, dirSubFolder, d.name)
