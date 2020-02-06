@@ -35,12 +35,18 @@ def getRootProps(returnNested=False):
 
 	# regex for root properties
 	rootRegexs = []
-	rerNAW = re.compile(r'^(_NET_ACTIVE_WINDOW).*?[=#:]{1}\s*window\s+id\s+#\s+(.*)$')
-	rerNDN = re.compile(r'^(_NET_DESKTOP_NAMES).*?[=#:]\s+(.*)$')
-	rerNND = re.compile(r'^(_NET_NUMBER_OF_DESKTOPS).*?[=#:]\s+(.*)$')
-	rerNCL = re.compile(r'^(_NET_CLIENT_LIST).*[=#:]\s+window\s+id\s+#\s+(.*)$')
-	rerNCD = re.compile(r'^(_NET_CURRENT_DESKTOP).*?[=#:]\s+(.*)$')
-	rerNWN = re.compile(r'^(_NET_WM_NAME).*?[=#:]\s+(.*)$')
+	# rerNAW = re.compile(r'^(_NET_ACTIVE_WINDOW).*?[=#:]{1}\s*window\s+id\s+#\s+(.*)$')
+	# rerNDN = re.compile(r'^(_NET_DESKTOP_NAMES).*?[=#:]\s+(.*)$')
+	# rerNND = re.compile(r'^(_NET_NUMBER_OF_DESKTOPS).*?[=#:]\s+(.*)$')
+	# rerNCL = re.compile(r'^(_NET_CLIENT_LIST).*[=#:]\s+window\s+id\s+#\s+(.*)$')
+	# rerNCD = re.compile(r'^(_NET_CURRENT_DESKTOP).*?[=#:]\s+(.*)$')
+	# rerNWN = re.compile(r'^(_NET_WM_NAME).*?[=#:]\s+(.*)$')
+	rerNAW = re.compile(r'^(_NET_ACTIVE_WINDOW)\(WINDOW\): window id # (.*)$')
+	rerNDN = re.compile(r'^(_NET_DESKTOP_NAMES)\(UTF8_STRING\) = (.*)$')
+	rerNND = re.compile(r'^(_NET_NUMBER_OF_DESKTOPS)\(CARDINAL\) = (.*)$')
+	rerNCL = re.compile(r'^(_NET_CLIENT_LIST)\(WINDOW\): window id # (.*)$')
+	rerNCD = re.compile(r'^(_NET_CURRENT_DESKTOP)\(CARDINAL\) = (.*)$')
+	rerNWN = re.compile(r'^(_NET_WM_NAME)\(UTF8_STRING\) = (.*)$')
 
 	rootRegexs.append(rerNAW)
 	rootRegexs.append(rerNDN)
@@ -106,14 +112,25 @@ def getWindowProps(winID, returnNested=False):
 
 	# regex for window properties
 	winRegexs = []
-	rewNWS = re.compile(r'^(_NET_WM_STATE).*?[=#:]\s+(.*)$')
-	rewNWD = re.compile(r'^(_NET_WM_DESKTOP).*?[=#:]\s+(.*)$')
-	rewWWR = re.compile(r'^(WM_WINDOW_ROLE).*[=#:] (.*)$')
+	# rewNWS = re.compile(r'^(_NET_WM_STATE).*?[=#:]\s+(.*)$')
+	# rewNWD = re.compile(r'^(_NET_WM_DESKTOP).*?[=#:]\s+(.*)$')
+	# rewWWR = re.compile(r'^(WM_WINDOW_ROLE).*[=#:] (.*)$')
+	# rewNWWT = re.compile(r'^(_NET_WM_WINDOW_TYPE).*[=#:] (.*)$')
+	# rewWN = re.compile(r'^(WM_NAME).*[=#:] (.*)$')
+	# rewNWN = re.compile(r'^(_NET_WM_NAME).*[=#:] (.*)$')
+	# rewWCM = re.compile(r'^(WM_CLIENT_MACHINE).*[=#:] (.*)$')
+	# rewWC = re.compile(r'^(WM_CLASS).*[=#:] (.*)$')
+	rewNWS = re.compile(r'^(_NET_WM_STATE)\(ATOM\) = (.*)$')
+	rewNWD = re.compile(r'^(_NET_WM_DESKTOP)\(CARDINAL\) = (.*)$')
+	rewWWR = re.compile(r'^(WM_WINDOW_ROLE)\(STRING\) = (.*)$')
+	rewWWR = re.compile(r'^(WM_WINDOW_ROLE): (.*)$')
 	rewNWWT = re.compile(r'^(_NET_WM_WINDOW_TYPE).*[=#:] (.*)$')
 	rewWN = re.compile(r'^(WM_NAME).*[=#:] (.*)$')
 	rewNWN = re.compile(r'^(_NET_WM_NAME).*[=#:] (.*)$')
 	rewWCM = re.compile(r'^(WM_CLIENT_MACHINE).*[=#:] (.*)$')
 	rewWC = re.compile(r'^(WM_CLASS).*[=#:] (.*)$')
+
+	# rewNWS = re.compile(r'^(WM_WINDOW_ROLE)(:|\(STRING\) =) (.*)$')
 
 	winRegexs.append(rewNWS)
 	winRegexs.append(rewNWD)
@@ -140,7 +157,7 @@ def getWindowProps(winID, returnNested=False):
 
 	# Convert list of matched objects in list of tuple of strings `(key, value)`
 	mow = [ tuple(mow[i].groups()) for i in range(len(mow)) ]
-	mow = [ (str('win-'+mow[i][0]), str(mow[i][1])) for i in range(len(mow)) ]
+	# mow = [ (str('win-'+mow[i][0]), str(mow[i][1])) for i in range(len(mow)) ]
 
 	if returnNested:
 		return mow
@@ -215,6 +232,10 @@ def loopOpenWindows():
 	return owp
 
 
+# pprint.pprint(getWindowProps('0x5600001'))
+# pprint.pprint(getWindowProps('0x3400003'))
+# pprint.pprint(getWindowProps('0x1600007'))
+# pprint.pprint(getWindowProps('0x2800007'))
 """
 ###################
 #
@@ -259,7 +280,7 @@ win-WM_CLASS ['"konsole", "konsole"']
 ## Variável `win-_NET_WM_NAME` está sendo retornada errada
 
 """
-loopOpenWindows()
+# loopOpenWindows()
 # getWindowProps('0x0')
 # print(''.center(70, '='))
 # getWindowProps('0x2400007')
