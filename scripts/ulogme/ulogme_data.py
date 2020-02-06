@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 
 import subprocess
+import pprint
 import re
 import csv
+import collections
 
-# TODO: collect data
+# collect data
 
-	# TODO: window properties
-	# TODO: maybe is better to return a dict rather than a nested list?
-	# functions `getRootProps` and `getWindowProps`
+	# window properties
 
-def getRootProps():
+def getRootProps(returnNested=False):
 	""" Get this window properties:
 
 	_NET_ACTIVE_WINDOW
@@ -35,12 +35,12 @@ def getRootProps():
 
 	# regex for root properties
 	rootRegexs = []
-	rerNAW = re.compile(r'^(_NET_ACTIVE_WINDOW).*[=#:] (.*)$')
-	rerNDN = re.compile(r'^(_NET_DESKTOP_NAMES).*[=#:] (.*)$')
-	rerNND = re.compile(r'^(_NET_NUMBER_OF_DESKTOPS).*[=#:] (.*)$')
-	rerNCL = re.compile(r'^(_NET_CLIENT_LIST).*[=#:] (.*)$')
-	rerNCD = re.compile(r'^(_NET_CURRENT_DESKTOP).*[=#:] (.*)$')
-	rerNWN = re.compile(r'^(_NET_WM_NAME).*[=#:] (.*)$')
+	rerNAW = re.compile(r'^(_NET_ACTIVE_WINDOW).*?[=#:]{1}\s*window\s+id\s+#\s+(.*)$')
+	rerNDN = re.compile(r'^(_NET_DESKTOP_NAMES).*?[=#:]\s+(.*)$')
+	rerNND = re.compile(r'^(_NET_NUMBER_OF_DESKTOPS).*?[=#:]\s+(.*)$')
+	rerNCL = re.compile(r'^(_NET_CLIENT_LIST).*[=#:]\s+window\s+id\s+#\s+(.*)$')
+	rerNCD = re.compile(r'^(_NET_CURRENT_DESKTOP).*?[=#:]\s+(.*)$')
+	rerNWN = re.compile(r'^(_NET_WM_NAME).*?[=#:]\s+(.*)$')
 
 	rootRegexs.append(rerNAW)
 	rootRegexs.append(rerNDN)
@@ -69,10 +69,17 @@ def getRootProps():
 	mor = [ tuple(mor[i].groups()) for i in range(len(mor)) ]
 	mor = [ (str('root-'+mor[i][0]), str(mor[i][1])) for i in range(len(mor)) ]
 
-	return mor
+	if returnNested:
+		return mor
+
+	# transform nested list in a dictionary
+	else:
+		d = collections.defaultdict(list)
+		[ d[k].append(v) for k, v in mor]
+		return d
 
 
-def getWindowProps(winID):
+def getWindowProps(winID, returnNested=False):
 	""" Get this window properties:
 	
 	_NET_WM_STATE
@@ -99,8 +106,8 @@ def getWindowProps(winID):
 
 	# regex for window properties
 	winRegexs = []
-	rewNWS = re.compile(r'^(_NET_WM_STATE).*[=#:] (.*)$')
-	rewNWD = re.compile(r'^(_NET_WM_DESKTOP).*[=#:] (.*)$')
+	rewNWS = re.compile(r'^(_NET_WM_STATE).*?[=#:]\s+(.*)$')
+	rewNWD = re.compile(r'^(_NET_WM_DESKTOP).*?[=#:]\s+(.*)$')
 	rewWWR = re.compile(r'^(WM_WINDOW_ROLE).*[=#:] (.*)$')
 	rewNWWT = re.compile(r'^(_NET_WM_WINDOW_TYPE).*[=#:] (.*)$')
 	rewWN = re.compile(r'^(WM_NAME).*[=#:] (.*)$')
@@ -135,11 +142,20 @@ def getWindowProps(winID):
 	mow = [ tuple(mow[i].groups()) for i in range(len(mow)) ]
 	mow = [ (str('win-'+mow[i][0]), str(mow[i][1])) for i in range(len(mow)) ]
 
-	return mow
+	if returnNested:
+		return mow
+
+	# transform nested list in a dictionary
+	else:
+		d = collections.defaultdict(list)
+		[ d[k].append(v) for k, v in mow]
+		return d
+
 
 
 
 	# work in each prop, and handle specifities, especificaly with `WM_CLASS`
+
 
 def sortNested(nestedList, nth):
 	""" sort nested list in this way:
@@ -156,12 +172,94 @@ def sortNested(nestedList, nth):
 	return(sorted(nestedList, key=lambda x: x[nth]))
 
 	# TODO: property `_NET_CLIENT_LIST` show id for all open windows. Maybe it's useful?
+
+
 def loopOpenWindows():
-	""" loop for all open windows and return their properties """
+	""" loop for all open windows and return their properties 
+		In this form:
+
+		dict = 
+
+		{
+			'IDx': defaultdict(<dict_IDx>),
+			'IDy': defaultdict(<dict_IDy>),
+			.
+			.
+			.
+			---snip---
+			'IDz': defaultdict(<dict_IDz>),
+		}
+
+		"""
+
 
 	# get open windows
 	ow = getRootProps()
+	ow = [ i.strip() for i in ow['root-_NET_CLIENT_LIST'][0].split(',') ]
 
+
+	# get property for each window
+	owp = collections.defaultdict(dict)
+	for w in ow:
+		owp[w] = getWindowProps(w)
+
+	# clean property strings
+	for wId, wVal in owp.items():
+		# print(wId, wVal)
+		if wId == '0x1600007':
+			print(wVal)
+			for k, v in wVal.items():
+				print(k, v)
+
+
+	return owp
+
+
+"""
+###################
+#
+# Corrigir regex 
+#
+###################
+
+#####
+##### essas são propriedades da janela aberta:
+#####
+
+WM_NAME(STRING) = "~ : htop"
+_NET_WM_NAME(UTF8_STRING) = "~ : htop — Konsole"
+_MOTIF_WM_HINTS(_MOTIF_WM_HINTS) = 0x3, 0x3e, 0x7e, 0x0, 0x0
+_NET_WM_WINDOW_TYPE(ATOM) = _NET_WM_WINDOW_TYPE_NORMAL
+_XEMBED_INFO(_XEMBED_INFO) = 0x0, 0x1
+WM_CLIENT_LEADER(WINDOW): window id # 0x1600009
+WM_HINTS(WM_HINTS):
+                Client accepts input or input focus: True
+                Initial state is Normal State.
+                window id # of group leader: 0x1600009
+WM_CLIENT_MACHINE(STRING) = "mcsarch"
+_NET_WM_PID(CARDINAL) = 5282
+_NET_WM_SYNC_REQUEST_COUNTER(CARDINAL) = 23068680
+WM_CLASS(STRING) = "konsole", "konsole"
+
+
+#####
+##### essas são as propriedades retornadas pela função
+#####
+
+win-_NET_WM_STATE ['_NET_WM_STATE_MAXIMIZED_HORZ, _NET_WM_STATE_MAXIMIZED_VERT']
+win-_NET_WM_DESKTOP ['1']
+win-WM_WINDOW_ROLE ['"MainWindow#1"']
+win-_NET_WM_WINDOW_TYPE ['_NET_WM_WINDOW_TYPE_NORMAL']
+win-WM_NAME ['htop"']
+win-_NET_WM_NAME ['htop — Konsole"']
+win-WM_CLIENT_MACHINE ['"mcsarch"']
+win-WM_CLASS ['"konsole", "konsole"']
+
+
+## Variável `win-_NET_WM_NAME` está sendo retornada errada
+
+"""
+loopOpenWindows()
 # getWindowProps('0x0')
 # print(''.center(70, '='))
 # getWindowProps('0x2400007')
@@ -171,7 +269,8 @@ def loopOpenWindows():
 # getWindowProps('0x5a00003')
 # getWindowProps('0x4000007')
 # getWindowProps('0x4c00007')
-print(getRootProps())
+# print(getRootProps())
+# getRootProps()
 # a = getWindowProps('0x2e00003')
 # b = getRootProps()
 # c = sortNested(a + b, 0)
@@ -179,9 +278,13 @@ print(getRootProps())
 # createLogFile('test_log.csv')
 
 
+# w = loopOpenWindows()
 
+# for k, v in w.items():
+# 	print(k)
+# 	pprint.pprint(v)
 
-
+# print(w['0x2a00003']['win-WM_NAME'])
 
 	# TODO: keyboard input
 	# TODO: mouse input (?)
