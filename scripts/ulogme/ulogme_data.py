@@ -5,6 +5,14 @@ import pprint
 import re
 import csv
 import collections
+import ulogme_setup
+
+
+logPath = ulogme_setup.logPath
+logFile = 
+
+###########################
+
 
 # collect data
 
@@ -41,12 +49,12 @@ def getRootProps(returnNested=False):
 	# rerNCL = re.compile(r'^(_NET_CLIENT_LIST).*[=#:]\s+window\s+id\s+#\s+(.*)$')
 	# rerNCD = re.compile(r'^(_NET_CURRENT_DESKTOP).*?[=#:]\s+(.*)$')
 	# rerNWN = re.compile(r'^(_NET_WM_NAME).*?[=#:]\s+(.*)$')
-	rerNAW = re.compile(r'^(_NET_ACTIVE_WINDOW)\(WINDOW\): window id # (.*)$')
-	rerNDN = re.compile(r'^(_NET_DESKTOP_NAMES)\(UTF8_STRING\) = (.*)$')
-	rerNND = re.compile(r'^(_NET_NUMBER_OF_DESKTOPS)\(CARDINAL\) = (.*)$')
-	rerNCL = re.compile(r'^(_NET_CLIENT_LIST)\(WINDOW\): window id # (.*)$')
-	rerNCD = re.compile(r'^(_NET_CURRENT_DESKTOP)\(CARDINAL\) = (.*)$')
-	rerNWN = re.compile(r'^(_NET_WM_NAME)\(UTF8_STRING\) = (.*)$')
+	rerNAW = re.compile(r'^(_NET_ACTIVE_WINDOW)(:\s*[=:].*#\s*|\(WINDOW\)\s*[=:].*#\s*) (.*)$')
+	rerNDN = re.compile(r'^(_NET_DESKTOP_NAMES)(:|\(UTF8_STRING\) =) (.*)$')
+	rerNND = re.compile(r'^(_NET_NUMBER_OF_DESKTOPS)(:|\(CARDINAL\) =) (.*)$')
+	rerNCL = re.compile(r'^(_NET_CLIENT_LIST)(:\s*[=:].*#\s*|\(WINDOW\)\s*[=:].*#\s*) (.*)$')
+	rerNCD = re.compile(r'^(_NET_CURRENT_DESKTOP)(:|\(CARDINAL\) =) (.*)$')
+	rerNWN = re.compile(r'^(_NET_WM_NAME)(:|\(UTF8_STRING\) =) (.*)$')
 
 	rootRegexs.append(rerNAW)
 	rootRegexs.append(rerNDN)
@@ -59,20 +67,11 @@ def getRootProps(returnNested=False):
 	# Get raw properties
 	root = subprocess.getoutput(f'xprop -root {rootPropsStr}').splitlines()
 
-
 	# matched objects root
-	mor = []
-
-	# Loop all properties and get regex match
-	for prop in root:
-		for rRegex in rootRegexs:
-			m = rRegex.search(prop)
-			if m:
-				mor.append(m)
-				break
+	mor = assertRegexMatch(rootRegexs, root)
 
 	# Convert list of matched objects in list of tuple of strings `(key, value)`
-	mor = [ tuple(mor[i].groups()) for i in range(len(mor)) ]
+	mor = [ (mor[i].groups()[0], mor[i].groups()[-1]) for i in range(len(mor)) ]
 	mor = [ (str('root-'+mor[i][0]), str(mor[i][1])) for i in range(len(mor)) ]
 
 	if returnNested:
@@ -82,6 +81,7 @@ def getRootProps(returnNested=False):
 	else:
 		d = collections.defaultdict(list)
 		[ d[k].append(v) for k, v in mor]
+
 		return d
 
 
@@ -120,17 +120,15 @@ def getWindowProps(winID, returnNested=False):
 	# rewNWN = re.compile(r'^(_NET_WM_NAME).*[=#:] (.*)$')
 	# rewWCM = re.compile(r'^(WM_CLIENT_MACHINE).*[=#:] (.*)$')
 	# rewWC = re.compile(r'^(WM_CLASS).*[=#:] (.*)$')
-	rewNWS = re.compile(r'^(_NET_WM_STATE)\(ATOM\) = (.*)$')
-	rewNWD = re.compile(r'^(_NET_WM_DESKTOP)\(CARDINAL\) = (.*)$')
-	rewWWR = re.compile(r'^(WM_WINDOW_ROLE)\(STRING\) = (.*)$')
-	rewWWR = re.compile(r'^(WM_WINDOW_ROLE): (.*)$')
-	rewNWWT = re.compile(r'^(_NET_WM_WINDOW_TYPE).*[=#:] (.*)$')
-	rewWN = re.compile(r'^(WM_NAME).*[=#:] (.*)$')
-	rewNWN = re.compile(r'^(_NET_WM_NAME).*[=#:] (.*)$')
-	rewWCM = re.compile(r'^(WM_CLIENT_MACHINE).*[=#:] (.*)$')
-	rewWC = re.compile(r'^(WM_CLASS).*[=#:] (.*)$')
+	rewNWS = re.compile(r'^(_NET_WM_STATE)(:|\(ATOM\) =) (.*)$')
+	rewNWD = re.compile(r'^(_NET_WM_DESKTOP)(:|\(CARDINAL\) =) (.*)$')
+	rewWWR = re.compile(r'^(WM_WINDOW_ROLE)(:|\(STRING\) =) (.*)$')
+	rewNWWT = re.compile(r'^(_NET_WM_WINDOW_TYPE)(:|\(ATOM\) =) (.*)$')
+	rewWN = re.compile(r'^(WM_NAME)(:|\(STRING\) =) (.*)$')
+	rewNWN = re.compile(r'^(_NET_WM_NAME)(:|\(UTF8_STRING\) =) (.*)$')
+	rewWCM = re.compile(r'^(WM_CLIENT_MACHINE)(:|\(STRING\) =) (.*)$')
+	rewWC = re.compile(r'^(WM_CLASS)(:|\(STRING\) =) (.*)$')
 
-	# rewNWS = re.compile(r'^(WM_WINDOW_ROLE)(:|\(STRING\) =) (.*)$')
 
 	winRegexs.append(rewNWS)
 	winRegexs.append(rewNWD)
@@ -145,18 +143,10 @@ def getWindowProps(winID, returnNested=False):
 	win = subprocess.getoutput(f'xprop -id {winID} {winPropsStr}').splitlines()
 
 	# matched objects window
-	mow = []
-
-	# Loop all properties and get regex match
-	for prop in win:
-		for rRegex in winRegexs:
-			m = rRegex.search(prop)
-			if m:
-				mow.append(m)
-				break
+	mow = assertRegexMatch(winRegexs, win)
 
 	# Convert list of matched objects in list of tuple of strings `(key, value)`
-	mow = [ tuple(mow[i].groups()) for i in range(len(mow)) ]
+	mow = [ (mow[i].groups()[0], mow[i].groups()[-1]) for i in range(len(mow)) ]
 	mow = [ (str('win-'+mow[i][0]), str(mow[i][1])) for i in range(len(mow)) ]
 
 	if returnNested:
@@ -172,6 +162,46 @@ def getWindowProps(winID, returnNested=False):
 
 
 	# work in each prop, and handle specifities, especificaly with `WM_CLASS`
+
+
+def assertRegexMatch(regexList, listSearch, ret="mo"):
+	""" Get raw data in form of list and return all matched items. 
+		The items that weren't matched are writed to a log file
+	"""
+
+	# list of matched objects
+	mo = []
+
+	# list of lines that were'n matched by any regex (Not Match Objects)
+	nmo = []
+
+
+	# loop all items and get regex match objects of them
+	n = len(regexList)
+
+	for i in listSearch:
+		c = listSearch.index(i)
+		for r in regexList:
+			m = r.search(i)
+			if m:
+				mo.append(m)
+				break
+		if not m:
+			nmo.append(i)
+
+	if nmo:
+		print(nmo)
+		with open(lf, mode='a') as l:
+			[ l.write(i + '\n') for i in nmo ]
+
+
+	if ret == "mo":
+		return mo
+	elif ret == "nmo":
+		return nmo
+	else:
+		return (mo, nmo)
+
 
 
 def sortNested(nestedList, nth):
@@ -280,12 +310,11 @@ win-WM_CLASS ['"konsole", "konsole"']
 ## Variável `win-_NET_WM_NAME` está sendo retornada errada
 
 """
+getRootProps()
 # loopOpenWindows()
 # getWindowProps('0x0')
 # print(''.center(70, '='))
-getWindowProps('0x2400007', returnNested=True)
-# getWindowProps('0x4200007')
-# getWindowProps('0x4600001')
+getWindowProps('0x4600001')
 # print(''.center(70, '='))
 # getWindowProps('0x5a00003')
 # getWindowProps('0x4000007')
