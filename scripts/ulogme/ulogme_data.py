@@ -157,7 +157,7 @@ def getWindowProps(winID, returnNested=False):
 
 	# Convert list of matched objects in list of tuple of strings `(key, value)`
 	mow = [ tuple(mow[i].groups()) for i in range(len(mow)) ]
-	# mow = [ (str('win-'+mow[i][0]), str(mow[i][1])) for i in range(len(mow)) ]
+	mow = [ (str('win-'+mow[i][0]), str(mow[i][1])) for i in range(len(mow)) ]
 
 	if returnNested:
 		return mow
@@ -283,7 +283,7 @@ win-WM_CLASS ['"konsole", "konsole"']
 # loopOpenWindows()
 # getWindowProps('0x0')
 # print(''.center(70, '='))
-# getWindowProps('0x2400007')
+getWindowProps('0x2400007', returnNested=True)
 # getWindowProps('0x4200007')
 # getWindowProps('0x4600001')
 # print(''.center(70, '='))
