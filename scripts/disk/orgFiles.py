@@ -110,7 +110,7 @@ def mvDirectories(directories):
 	""" Move all directories to subfolder `subDirectories` """
 
 	for d in directories:
-		if d in preserveDirectories:
+		if d.name in preserveDirectories:
 			continue
 		oldDirPath = d.resolve()
 		newDirPath = pathlib.Path.joinpath(d.parent, dirSubFolder, d.name)
