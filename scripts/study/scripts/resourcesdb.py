@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 #
-# mps.py stands for `Monitoring Progress in Study`
+# Script to handle resources data
 #
 
 import json
@@ -300,7 +300,22 @@ def getNumberOfResources(resources_file=resources_file):
 
 	return nors
 
+def getMainCategories(resources_file=resources_file):
 
+	resourcesDict = getResourcesDict()
+
+	# Get Main Categories
+	mc = set()
+
+	# for Resource and Properties in ResourceDict
+	for r, p in resourcesDict.items():
+		for k, v in p.items():
+			if k == 'main_category':
+				mc.add(v)
+	return sorted(mc)
+
+# pprint.pprint(getMainCategories())
+# pprint.pprint(addKey('study_sequence', 0))
 # getNumberOfResources()
 # pprint.pprint(defaultResourceProps)
 
@@ -308,4 +323,6 @@ def getNumberOfResources(resources_file=resources_file):
 
 # TODO: write functions to create a Markdown file from contents in `resources_file`
 
-populate()
+if __name__ == '__main__':
+	# populate()
+	pass
