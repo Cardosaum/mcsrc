@@ -1,0 +1,562 @@
+{
+    "id_0001": {
+        "duration": 422,
+        "link": "https://www.openintro.org/book/os/",
+        "main_category": "Probability and Statistics",
+        "name": "OpenIntro Statistics",
+        "status": 10,
+        "studying_now": true,
+        "tags": [
+            "math",
+            "statistics",
+            "probability",
+            "introductory",
+            "Data Science"
+        ],
+        "type": "book"
+    },
+    "id_0002": {
+        "duration": 247,
+        "link": "https://rstudio-education.github.io/hopr/",
+        "main_category": "R",
+        "name": "HandsOn Programming with R",
+        "status": 17,
+        "studying_now": true,
+        "tags": [
+            "programming",
+            "Computer Science",
+            "introductory",
+            "R"
+        ],
+        "type": "book"
+    },
+    "id_0003": {
+        "duration": 469,
+        "link": "https://www.edx.org/course/linear-algebra-foundations-frontiers-utaustinx-ut-5-04x#!",
+        "main_category": "Linear Algebra",
+        "name": "Linear Algebra - Foundations to Frontiers",
+        "status": 40,
+        "studying_now": true,
+        "tags": [
+            "Linear Algebra",
+            "math",
+            "Computer Science",
+            "introductory"
+        ],
+        "type": "book"
+    },
+    "id_0004": {
+        "duration": 548,
+        "link": "https://jakevdp.github.io/PythonDataScienceHandbook/",
+        "main_category": "Python",
+        "name": "Python Data Science Handbook",
+        "status": 68,
+        "studying_now": true,
+        "tags": [
+            "Python",
+            "Computer Science",
+            "Data Science",
+            "introductory",
+            "statistics",
+            "probability"
+        ],
+        "type": "book"
+    },
+    "id_0005": {
+        "duration": 520,
+        "link": "https://r4ds.had.co.nz/introduction.html",
+        "main_category": "R",
+        "name": "R for Data Science",
+        "status": 40,
+        "studying_now": true,
+        "tags": [
+            "programming",
+            "Computer Science",
+            "introductory",
+            "R",
+            "Data Science",
+            "statistics",
+            "probability"
+        ],
+        "type": "book"
+    },
+    "id_0006": {
+        "duration": 5,
+        "link": "https://www.edx.org/course/applications-linear-algebra-part-1-davidsonx-d003x-1",
+        "main_category": "Linear Algebra",
+        "name": "Applications of Linear Algebra Part 1",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Linear Algebra",
+            "math",
+            "Computer Science"
+        ],
+        "type": "mooc"
+    },
+    "id_0007": {
+        "duration": 4,
+        "link": "https://www.edx.org/course/applications-linear-algebra-part-2-davidsonx-d003x-2",
+        "main_category": "Linear Algebra",
+        "name": "Applications of Linear Algebra Part 2",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Linear Algebra",
+            "math",
+            "Computer Science"
+        ],
+        "type": "mooc"
+    },
+    "id_0008": {
+        "duration": 13,
+        "link": "https://www.edx.org/course/calculus-1a-differentiation-mitx-18-01-1x",
+        "main_category": "Single Variable Calculus",
+        "name": "Calculus 1A: Differentiation",
+        "status": 13,
+        "studying_now": false,
+        "tags": [
+            "math",
+            "calculus",
+            "introductory"
+        ],
+        "type": "mooc"
+    },
+    "id_0009": {
+        "duration": 13,
+        "link": "https://www.edx.org/course/calculus-1b-integration-mitx-18-01-2x",
+        "main_category": "Single Variable Calculus",
+        "name": "Calculus 1B: Integration",
+        "status": 13,
+        "studying_now": false,
+        "tags": [
+            "math",
+            "calculus",
+            "introductory"
+        ],
+        "type": "mooc"
+    },
+    "id_0010": {
+        "duration": 13,
+        "link": "https://www.edx.org/course/calculus-1c-coordinate-systems-infinite-mitx-18-01-3x",
+        "main_category": "Single Variable Calculus",
+        "name": "Calculus 1C: Coordinate Systems & Infinite Series",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "math",
+            "calculus",
+            "introductory"
+        ],
+        "type": "mooc"
+    },
+    "id_0011": {
+        "duration": 15,
+        "link": "http://ocw.mit.edu/courses/mathematics/18-02sc-multivariable-calculus-fall-2010/index.htm",
+        "main_category": "Multivariable Calculus",
+        "name": "MIT OCW Multivariable Calculus",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "math",
+            "calculus"
+        ],
+        "type": "mooc"
+    },
+    "id_0012": {
+        "duration": 9,
+        "link": "https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-7",
+        "main_category": "Python",
+        "name": "Introduction to Computer Science and Programming Using Python",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Python",
+            "Computer Science",
+            "introductory",
+            "programming"
+        ],
+        "type": "mooc"
+    },
+    "id_0013": {
+        "duration": 10,
+        "link": "https://www.edx.org/course/introduction-computational-thinking-data-mitx-6-00-2x-3",
+        "main_category": "Python",
+        "name": "Introduction to Computational Thinking and Data Science",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Python",
+            "Computer Science",
+            "introductory",
+            "programming",
+            "Data Science"
+        ],
+        "type": "mooc"
+    },
+    "id_0014": {
+        "duration": 4,
+        "link": "https://www.coursera.org/learn/python-data-analysis?specialization=data-science-python",
+        "main_category": "Python",
+        "name": "Introduction to Data Science in Python",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Python",
+            "Computer Science",
+            "introductory",
+            "programming",
+            "Data Science"
+        ],
+        "type": "mooc"
+    },
+    "id_0015": {
+        "duration": 6,
+        "link": "https://prod-edx-mktg-edit.edx.org/course/introduction-python-data-science-microsoft-dat208x-1",
+        "main_category": "Python",
+        "name": "Introduction to Python for Data Science",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Python",
+            "Computer Science",
+            "introductory",
+            "programming",
+            "Data Science"
+        ],
+        "type": "mooc"
+    },
+    "id_0016": {
+        "duration": 6,
+        "link": "https://www.edx.org/course/programming-python-data-science-microsoft-dat210x",
+        "main_category": "Python",
+        "name": "Programming with Python for Data Science",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Python",
+            "Computer Science",
+            "introductory",
+            "programming",
+            "Data Science"
+        ],
+        "type": "mooc"
+    },
+    "id_0017": {
+        "duration": 4,
+        "link": "https://www.coursera.org/learn/algorithms-divide-conquer",
+        "main_category": "Algorithms",
+        "name": "Algorithms 01 - Divide and Conquer, Sorting and Searching, and Randomized Algorithms",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Algorithms",
+            "math",
+            "Computer Science",
+            "programming"
+        ],
+        "type": "mooc"
+    },
+    "id_0018": {
+        "duration": 4,
+        "link": "https://www.coursera.org/learn/algorithms-graphs-data-structures",
+        "main_category": "Algorithms",
+        "name": "Algorithms 02 - Graph Search, Shortest Paths, and Data Structures",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Algorithms",
+            "math",
+            "Computer Science",
+            "programming"
+        ],
+        "type": "mooc"
+    },
+    "id_0019": {
+        "duration": 4,
+        "link": "https://www.coursera.org/learn/algorithms-greedy",
+        "main_category": "Algorithms",
+        "name": "Algorithms 03 - Greedy Algorithms, Minimum Spanning Trees, and Dynamic Programming",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Algorithms",
+            "math",
+            "Computer Science",
+            "programming"
+        ],
+        "type": "mooc"
+    },
+    "id_0020": {
+        "duration": 4,
+        "link": "https://www.coursera.org/learn/algorithms-npcomplete",
+        "main_category": "Algorithms",
+        "name": "Algorithms 04 - Shortest Paths Revisited, NP-Complete Problems and What To Do About Them",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Algorithms",
+            "math",
+            "Computer Science",
+            "programming"
+        ],
+        "type": "mooc"
+    },
+    "id_0021": {
+        "duration": 16,
+        "link": "https://www.edx.org/course/introduction-probability-science-mitx-6-041x-1#.U3yb762SzIo",
+        "main_category": "Probability and Statistics",
+        "name": "Introduction to Probability",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "probability",
+            "statistics",
+            "math",
+            "introductory"
+        ],
+        "type": "mooc"
+    },
+    "id_0022": {
+        "duration": -1,
+        "link": "https://lagunita.stanford.edu/courses/OLI/StatReasoning/Open/about",
+        "main_category": "Probability and Statistics",
+        "name": "Statistical Reasoning",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "probability",
+            "statistics",
+            "math"
+        ],
+        "type": "mooc"
+    },
+    "id_0023": {
+        "duration": 5,
+        "link": "https://www.edx.org/course/introduction-statistics-descriptive-uc-berkeleyx-stat2-1x",
+        "main_category": "Probability and Statistics",
+        "name": "Introduction to Statistics: Descriptive Statistics",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "probability",
+            "statistics",
+            "math",
+            "introductory"
+        ],
+        "type": "mooc"
+    },
+    "id_0024": {
+        "duration": 5,
+        "link": "https://www.edx.org/course/introduction-statistics-probability-uc-berkeleyx-stat2-2x",
+        "main_category": "Probability and Statistics",
+        "name": "Introduction to Statistics: Probability",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "probability",
+            "statistics",
+            "math",
+            "introductory"
+        ],
+        "type": "mooc"
+    },
+    "id_0025": {
+        "duration": 5,
+        "link": "https://www.edx.org/course/introduction-statistics-inference-uc-berkeleyx-stat2-3x",
+        "main_category": "Probability and Statistics",
+        "name": "Introduction to Statistics: Inference",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "probability",
+            "statistics",
+            "math",
+            "introductory"
+        ],
+        "type": "mooc"
+    },
+    "id_0026": {
+        "duration": 8,
+        "link": "https://www.coursera.org/course/datasci",
+        "main_category": "Data Science",
+        "name": "Introduction to Data Science",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "introductory",
+            "Data Science"
+        ],
+        "type": "mooc"
+    },
+    "id_0027": {
+        "duration": 12,
+        "link": "http://cs109.github.io/2015/",
+        "main_category": "Data Science",
+        "name": "Data Science - CS109 from Harvard",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Data Science"
+        ],
+        "type": "mooc"
+    },
+    "id_0028": {
+        "duration": 12,
+        "link": "https://www.edx.org/course/analytics-edge-mitx-15-071x-2",
+        "main_category": "Data Science",
+        "name": "The Analytics Edge",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Data Science"
+        ],
+        "type": "mooc"
+    },
+    "id_0029": {
+        "duration": 10,
+        "link": "https://www.edx.org/course/learning-data-introductory-machine-caltechx-cs1156x",
+        "main_category": "Machine Learning",
+        "name": "Learning From Data (Introductory Machine Learning)",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Data Science",
+            "programming",
+            "Machine Learning",
+            "math",
+            "probability",
+            "statistics"
+        ],
+        "type": "mooc"
+    },
+    "id_0030": {
+        "duration": -1,
+        "link": "https://lagunita.stanford.edu/courses/HumanitiesSciences/StatLearning/Winter2016/about",
+        "main_category": "Machine Learning",
+        "name": "Statistical Learning",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Data Science",
+            "programming",
+            "Machine Learning",
+            "math",
+            "probability",
+            "statistics"
+        ],
+        "type": "mooc"
+    },
+    "id_0031": {
+        "duration": 11,
+        "link": "https://www.coursera.org/learn/machine-learning",
+        "main_category": "Machine Learning",
+        "name": "Stanford's Machine Learning Course",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Data Science",
+            "programming",
+            "Machine Learning",
+            "math",
+            "probability",
+            "statistics"
+        ],
+        "type": "mooc"
+    },
+    "id_0032": {
+        "duration": 9,
+        "link": "https://lagunita.stanford.edu/courses/Engineering/CVX101/Winter2014/about",
+        "main_category": "Convex Optimization",
+        "name": "Convex Optimization",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Convex Optimization",
+            "math",
+            "programming"
+        ],
+        "type": "mooc"
+    },
+    "id_0033": {
+        "duration": 8,
+        "link": "https://www.udacity.com/course/data-wrangling-with-mongodb--ud032",
+        "main_category": "Data Wrangling",
+        "name": "Data Wrangling with MongoDB",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Data Wrangling",
+            "programming"
+        ],
+        "type": "mooc"
+    },
+    "id_0034": {
+        "duration": 4,
+        "link": "https://www.udacity.com/course/intro-to-hadoop-and-mapreduce--ud617",
+        "main_category": "Big Data",
+        "name": "Intro to Hadoop and MapReduce",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Big Data",
+            "programming",
+            "hadoop"
+        ],
+        "type": "mooc"
+    },
+    "id_0035": {
+        "duration": 3,
+        "link": "https://www.udacity.com/course/deploying-a-hadoop-cluster--ud1000",
+        "main_category": "Big Data",
+        "name": "Deploying a Hadoop Cluster",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Big Data",
+            "programming",
+            "hadoop"
+        ],
+        "type": "mooc"
+    },
+    "id_0036": {
+        "duration": -1,
+        "link": "https://lagunita.stanford.edu/courses/DB/2014/SelfPaced/about",
+        "main_category": "Database",
+        "name": "Stanford's Database course",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Database",
+            "programming"
+        ],
+        "type": "mooc"
+    },
+    "id_0037": {
+        "duration": -1,
+        "link": "http://cs224d.stanford.edu/",
+        "main_category": "Natural Language Processing",
+        "name": "Deep Learning for Natural Language Processing",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Deep Learning",
+            "Natural Language Processing",
+            "programming"
+        ],
+        "type": "mooc"
+    },
+    "id_0038": {
+        "duration": 12,
+        "link": "https://www.udacity.com/course/deep-learning--ud730",
+        "main_category": "Deep Learning",
+        "name": "Deep Learning",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Deep Learning",
+            "programming"
+        ],
+        "type": "mooc"
+    }
+}

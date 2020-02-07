@@ -12,7 +12,7 @@ import pprint
 #### Config ####
 
 # Directories
-data_path = '../data'
+data_path = '../resources_data'
 
 # Files
 resources_file = 'resources_properties.json'
@@ -30,6 +30,9 @@ defaultResourceProps = [
 						( 'tags', list )
 						]
 
+# Aesthetics
+fillLength = 70
+
 ################
 
 # Setup Resources Data
@@ -38,29 +41,17 @@ resources_file = pathlib.Path.joinpath(data_path, resources_file)
 defaultResourceProps = collections.defaultdict(dict, defaultResourceProps)
 	
 
-def askAndCreateDict():
-	""" Function to interactively populate the first `resources_file` """
-
-	# Aks if want to contine inserting books
-	rd = collections.defaultdict(dict)
-	n = 1
-	props = [('name', str), ('duration', int), ('status', int), ('link', str), ('type', str), ('studying_now', int)]
-	while askYN('Do you want to insert one more resource?'):
-		nFormated = f'{n:04d}'
-		print()
-		print(f' Resource {nFormated} '.center(70, '='))
-		for name, typeValue in props:
-			rd[f'id_{nFormated}'][name] = inputValid(name, typeValue)
-			print()
-
-		print(''.center(70, '='))
-		print()
-		n += 1
+def populate():
+	""" Function to interactively populate `resources_file` """
 
 	print()
-	print(' Creating Config File '.center(70, '+'))
-	with open(resources_file, 'a') as f:
-		json.dump(rd, f, sort_keys=True, indent=4)
+	print(' Executing "Populate" Function '.center(fillLength, '#'))
+
+	while askYN('Add Resource?'):
+		addResource(performWrite=True)
+
+	print()
+	print(' Creating Config File '.center(fillLength, '#'))
 
 def askYN(text):
 	""" Ask user to respond either Yes or No """
@@ -132,45 +123,45 @@ def answer(name, typeValue):
 
 	return answer
 
-def inputValid(name, typeValue):
+# def inputValid(name, typeValue):
 
-	str_cancel = '-1'
-	names_bool = ['studying_now']
-	while True:
-		try:
+# 	str_cancel = '-1'
+# 	names_bool = ['studying_now']
+# 	while True:
+# 		try:
 
-			answer = answer(name, typeValue)
+# 			answer = answer(name, typeValue)
 			
-			if typeValue == list:
-				print('Note: Tags must be comma separated')
+# 			if typeValue == list:
+# 				print('Note: Tags must be comma separated')
 
 
-			print()
+# 			print()
 
-			if answer == '' and typeValue == str:
-				print(f'If you want to insert a empty value, insert "{str_cancel}"')
-				continue
-			elif answer == f'{str_cancel}':
-				answer = ''
-		except ValueError:
-			print()
-			print('Please, you must insert a valid value!')
+# 			if answer == '' and typeValue == str:
+# 				print(f'If you want to insert a empty value, insert "{str_cancel}"')
+# 				continue
+# 			elif answer == f'{str_cancel}':
+# 				answer = ''
+# 		except ValueError:
+# 			print()
+# 			print('Please, you must insert a valid value!')
 			
-			if name in names_bool:
-				print('Insert:\n\t"0" for "False"\n\t"1" for "True"\n')
-				continue
+# 			if name in names_bool:
+# 				print('Insert:\n\t"0" for "False"\n\t"1" for "True"\n')
+# 				continue
 
 			
-			if typeValue == int:
-				print(f'If you want to insert a empty value, insert "{str_cancel}"')
+# 			if typeValue == int:
+# 				print(f'If you want to insert a empty value, insert "{str_cancel}"')
 			
-			print(f'Insert a "{typeValue.__qualname__}" type.')
-			print()
-			continue
+# 			print(f'Insert a "{typeValue.__qualname__}" type.')
+# 			print()
+# 			continue
 
-		if type(answer) == typeValue:
-			break
-	return answer
+# 		if type(answer) == typeValue:
+# 			break
+# 	return answer
 
 
 def writeResources(resourcesDict):
@@ -184,8 +175,12 @@ def writeResources(resourcesDict):
 def readResources(resources_file):
 	""" Get `resources_file` content as a dict """
 
-	with resources_file.open() as rf:
-		resourcesDict = json.load(rf)
+	try:
+		with resources_file.open() as rf:
+			resourcesDict = json.load(rf)
+
+	except json.decoder.JSONDecodeError:
+		return
 
 	return resourcesDict
 
@@ -247,16 +242,22 @@ def editKeyvalue(key, value=None, resourceID=None, defaultValue=None, resourcesD
 def getResourcesDict(resourcesDict=resources_file):
 	""" Read `resources_file` and return their value. Else, return dict passed """
 
+
 	# Get Resources Content from `resources_file`
 	if resourcesDict == resources_file:
 		resourcesDict = readResources(resources_file)
 
-	resourcesDict = collections.defaultdict(dict, resourcesDict)
+	try:
+		resourcesDict = collections.defaultdict(dict, resourcesDict)
+
+	except TypeError: 
+
+		resourcesDict = collections.defaultdict(dict)
 
 	return resourcesDict
 
 
-def addResource(resources_file=resources_file):
+def addResource(resources_file=resources_file, performWrite=False, askUserIfAdd=False):
 	""" Function to add one resource to `resources_file` """
 
 	# Get default resource props 
@@ -266,9 +267,10 @@ def addResource(resources_file=resources_file):
 	resourcesDict = getResourcesDict()
 
 	# Ask if user want to insert a entry manualy
-	yeah =  askYN('Do you want to insert one more resource?')
-	if not yeah:
-		return
+	if askUserIfAdd:
+		yeah =  askYN('Do you want to insert one more resource?')
+		if not yeah:
+			return 
 
 	# creat new resource id
 	n = getNumberOfResources()
@@ -280,7 +282,12 @@ def addResource(resources_file=resources_file):
 
 	print(''.center(70, '='))
 	print()
-	pprint.pprint(resourcesDict)
+
+	if performWrite:
+		writeResources(resourcesDict)
+
+	return resourcesDict
+
 
 
 def getNumberOfResources(resources_file=resources_file):
@@ -293,7 +300,6 @@ def getNumberOfResources(resources_file=resources_file):
 
 	return nors
 
-addResource()
 
 # getNumberOfResources()
 # pprint.pprint(defaultResourceProps)
@@ -301,3 +307,5 @@ addResource()
 # TODO: write function to rename key from resourcesDict
 
 # TODO: write functions to create a Markdown file from contents in `resources_file`
+
+populate()
