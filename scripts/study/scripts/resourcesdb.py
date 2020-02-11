@@ -8,6 +8,7 @@ import json
 import pathlib
 import collections
 import pprint
+import pandas as pd
 
 #### Config ####
 
@@ -341,7 +342,19 @@ def groupByKey(property, resources_file=resources_file):
 
 # TODO: write functions to create a Markdown file from contents in `resources_file`
 
+def categoriesAndValues():
+	r = getResourcesDict()
+	d = pd.DataFrame(r)
+
+def getResourcesFrame():
+	""" get resources frame """
+
+	rf = pd.DataFrame(getResourcesDict()).T
+
+	return rf
 
 if __name__ == '__main__':
+	getResourcesFrame()
+	# categoriesAndValues()
 	# populate()
 	pass
