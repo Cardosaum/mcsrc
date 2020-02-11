@@ -214,7 +214,7 @@ def tableHeader(textBefore='', textAfter=''):
     header += 'Courses | Duration | Status | Percentage'
     align += ':-- | :--: | :--: | :--:'
 
-    final = f"{textBefore}{header}\n{align}{textAfter}"
+    final = f"{textBefore}{header}\n{align}{textAfter}\n"
 
     return final
 
