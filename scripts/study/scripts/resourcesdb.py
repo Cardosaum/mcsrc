@@ -239,7 +239,7 @@ def editKeyvalue(key, value=None, resourceID=None, defaultValue=None, resourcesD
 
 	return resourcesDict
 
-def getResourcesDict(resourcesDict=resources_file):
+def getResourcesDict(resourcesDict=resources_file, resourcesIDs=[]):
 	""" Read `resources_file` and return their value. Else, return dict passed """
 
 
@@ -254,6 +254,17 @@ def getResourcesDict(resourcesDict=resources_file):
 
 		resourcesDict = collections.defaultdict(dict)
 
+	if resourcesIDs:
+
+		filtredDict = collections.defaultdict(dict)
+
+		# loop for Resource ID and their respective properties
+		for rID, p in resourcesDict.items():
+			for requiredItem in resourcesIDs:
+				if rID == requiredItem:
+					filtredDict[rID] = p
+
+		return filtredDict
 	return resourcesDict
 
 
@@ -314,14 +325,22 @@ def getMainCategories(resources_file=resources_file):
 				mc.add(v)
 	return sorted(mc)
 
-# pprint.pprint(getMainCategories())
-# pprint.pprint(addKey('study_sequence', 0))
-# getNumberOfResources()
-# pprint.pprint(defaultResourceProps)
+def groupByKey(property, resources_file=resources_file):
+	""" loop over dict and return all resources that have same `value` for a given key """
+
+	resourcesDict = getResourcesDict()
+
+	# get a Set Of Resources that have same property
+	sor = set()
+
+	for rID, p in resourcesDict.items():
+		for k, v in p.items():
+			set.add(resourcesDict[rID][k])
 
 # TODO: write function to rename key from resourcesDict
 
 # TODO: write functions to create a Markdown file from contents in `resources_file`
+
 
 if __name__ == '__main__':
 	# populate()
