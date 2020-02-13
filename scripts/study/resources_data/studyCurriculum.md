@@ -10,7 +10,7 @@
 
 </p>
 
-> Last Update: 08:52:31, 02/13/20
+> Last Update: 08:57:45, 02/13/20
 
 
 
@@ -92,7 +92,7 @@ Courses | Duration | Status | Percentage
 
 Courses | Duration | Status | Percentage
 :-- | :--: | :--: | :--:
-:globe_with_meridians: [Stanford's Database course](https://lagunita.stanford.edu/courses/DB/2014/SelfPaced/about) | 0 weeks | 0 weeks | 0.00%
+:globe_with_meridians: [Stanford's Database course](https://lagunita.stanford.edu/courses/DB/2014/SelfPaced/about) | ? weeks | 0 weeks | 0.00%
 
 
 ### Deep Learning
@@ -115,7 +115,7 @@ Courses | Duration | Status | Percentage
 Courses | Duration | Status | Percentage
 :-- | :--: | :--: | :--:
 :globe_with_meridians: [Learning From Data (Introductory Machine Learning)](https://www.edx.org/course/learning-data-introductory-machine-caltechx-cs1156x) | 10 weeks | 0 weeks | 0.00%
-:globe_with_meridians: [Statistical Learning](https://lagunita.stanford.edu/courses/HumanitiesSciences/StatLearning/Winter2016/about) | 0 weeks | 0 weeks | 0.00%
+:globe_with_meridians: [Statistical Learning](https://lagunita.stanford.edu/courses/HumanitiesSciences/StatLearning/Winter2016/about) | ? weeks | 0 weeks | 0.00%
 :globe_with_meridians: [Stanford's Machine Learning Course](https://www.coursera.org/learn/machine-learning) | 11 weeks | 0 weeks | 0.00%
 
 
@@ -130,7 +130,7 @@ Courses | Duration | Status | Percentage
 
 Courses | Duration | Status | Percentage
 :-- | :--: | :--: | :--:
-:globe_with_meridians: [Deep Learning for Natural Language Processing](http://cs224d.stanford.edu/) | 0 weeks | 0 weeks | 0.00%
+:globe_with_meridians: [Deep Learning for Natural Language Processing](http://cs224d.stanford.edu/) | ? weeks | 0 weeks | 0.00%
 
 
 ### Probability and Statistics
@@ -138,7 +138,7 @@ Courses | Duration | Status | Percentage
 Courses | Duration | Status | Percentage
 :-- | :--: | :--: | :--:
 :globe_with_meridians: [Introduction to Probability](https://www.edx.org/course/introduction-probability-science-mitx-6-041x-1#.U3yb762SzIo) | 16 weeks | 0 weeks | 0.00%
-:globe_with_meridians: [Statistical Reasoning](https://lagunita.stanford.edu/courses/OLI/StatReasoning/Open/about) | 0 weeks | 0 weeks | 0.00%
+:globe_with_meridians: [Statistical Reasoning](https://lagunita.stanford.edu/courses/OLI/StatReasoning/Open/about) | ? weeks | 0 weeks | 0.00%
 :globe_with_meridians: [Introduction to Statistics: Descriptive Statistics](https://www.edx.org/course/introduction-statistics-descriptive-uc-berkeleyx-stat2-1x) | 5 weeks | 0 weeks | 0.00%
 :globe_with_meridians: [Introduction to Statistics: Probability](https://www.edx.org/course/introduction-statistics-probability-uc-berkeleyx-stat2-2x) | 5 weeks | 0 weeks | 0.00%
 :globe_with_meridians: [Introduction to Statistics: Inference](https://www.edx.org/course/introduction-statistics-inference-uc-berkeleyx-stat2-3x) | 5 weeks | 0 weeks | 0.00%

@@ -202,6 +202,9 @@ def tableRow(resource, collunmsFromDict=['name', 'duration', 'status'], collunms
             
             elif col == 'duration' or col == 'status':
 
+                if col == 'duration' and int(p[col]) == 0:
+                    p[col] = '?'
+
                 if typeResource:
                     typ = ''
                     if typeResource == 'book':
@@ -274,5 +277,5 @@ def markdownPage():
     return text
 
 # markdownPage()
-print(markdownPage())
+# print(markdownPage())
 createFile(markdownPage())
