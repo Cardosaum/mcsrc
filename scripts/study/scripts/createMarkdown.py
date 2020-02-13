@@ -197,6 +197,17 @@ def tableRow(resource, collunmsFromDict=['name', 'duration', 'status'], collunms
 
                 table += f"{symbolResource} [{str(p[col])}]({str(p['link'])}) {table_divisor}"
 
+            if col == 'duration' or col == 'status':
+
+                if typeResource:
+                    typ = ''
+                    if typeResource == 'book':
+                        typ = 'pages'
+                    elif typeResource == 'mooc':
+                        typ = 'weeks'
+
+                    table += f"{str(p[col])} {typ} {table_divisor}"
+
             else:
                 table += f"{str(p[col])} {table_divisor}"
         table = table.strip(' |')
