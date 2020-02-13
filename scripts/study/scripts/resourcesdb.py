@@ -342,9 +342,10 @@ def groupByKey(property, resources_file=resources_file):
 
 # TODO: write functions to create a Markdown file from contents in `resources_file`
 
-def categoriesAndValues():
-	r = getResourcesDict()
-	d = pd.DataFrame(r)
+def convertDataFrameToDict(bdf):
+
+    return collections.defaultdict(dict, bdf.T.to_dict())
+
 
 def getResourcesFrame():
 	""" get resources frame """
@@ -354,7 +355,7 @@ def getResourcesFrame():
 	return rf
 
 if __name__ == '__main__':
-	getResourcesFrame()
+	# getResourcesFrame()
 	# categoriesAndValues()
 	# populate()
 	pass
