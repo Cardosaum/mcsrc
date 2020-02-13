@@ -211,6 +211,17 @@ def tableRow(resource, collunmsFromDict=['name', 'duration', 'status'], collunms
 
                     table += f"{str(p[col])} {typ} {table_divisor}"
 
+            elif col == 'percentage':
+
+                percent = float(p['percentage'].strip('%'))
+
+                if percent == 100:
+
+                    table += f"<ul><li>- [x] OK</li></ul>"
+
+                else:   
+                    table += f"{str(p[col])} {table_divisor}"
+
             
             else:
                 table += f"{str(p[col])} {table_divisor}"
@@ -262,5 +273,6 @@ def markdownPage():
 
     return text
 
+# markdownPage()
 print(markdownPage())
 createFile(markdownPage())

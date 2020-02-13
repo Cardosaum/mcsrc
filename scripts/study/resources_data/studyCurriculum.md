@@ -10,7 +10,7 @@
 
 </p>
 
-> Last Update: 08:45:50, 02/13/20
+> Last Update: 08:52:31, 02/13/20
 
 
 
@@ -159,7 +159,7 @@ Courses | Duration | Status | Percentage
 
 Courses | Duration | Status | Percentage
 :-- | :--: | :--: | :--:
-:globe_with_meridians: [Calculus 1A: Differentiation](https://www.edx.org/course/calculus-1a-differentiation-mitx-18-01-1x) | 13 weeks | 13 weeks | 100.00%
-:globe_with_meridians: [Calculus 1B: Integration](https://www.edx.org/course/calculus-1b-integration-mitx-18-01-2x) | 13 weeks | 13 weeks | 100.00%
+:globe_with_meridians: [Calculus 1A: Differentiation](https://www.edx.org/course/calculus-1a-differentiation-mitx-18-01-1x) | 13 weeks | 13 weeks | <ul><li>- [x] OK</li></ul>
+:globe_with_meridians: [Calculus 1B: Integration](https://www.edx.org/course/calculus-1b-integration-mitx-18-01-2x) | 13 weeks | 13 weeks | <ul><li>- [x] OK</li></ul>
 :globe_with_meridians: [Calculus 1C: Coordinate Systems & Infinite Series](https://www.edx.org/course/calculus-1c-coordinate-systems-infinite-mitx-18-01-3x) | 13 weeks | 0 weeks | 0.00%
 
