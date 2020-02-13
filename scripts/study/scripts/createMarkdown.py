@@ -44,7 +44,7 @@ def createFile(content, markdown_file=markdown_file):
 def header(markdown_file=markdown_file):
     """ Create File Header """
 
-    updateTime = datetime.datetime.now().strftime('%X, %x')
+    updateTime = datetime.datetime.now().strftime('%X, %d/%m/%Y')
     header = f"""<h3 align="center">Derived from Open Source Society University
   <br>
   <br>
