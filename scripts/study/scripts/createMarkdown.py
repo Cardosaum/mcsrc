@@ -276,6 +276,6 @@ def markdownPage():
 
     return text
 
-# markdownPage()
-# print(markdownPage())
-createFile(markdownPage())
+if __name__ == '__main__':
+    text = markdownPage()
+    createFile(text)

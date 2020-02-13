@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 
-from pprint import pprint
-import pathlib
 import resourcesdb
+import createMarkdown
 
 
 def getbdf():
@@ -102,3 +101,6 @@ if __name__ == '__main__':
     for i in range(len(csb)):
         bookDF = csb.iloc[i]
         book(bookDF, bdf)
+    
+    markDownText = createMarkdown.markdownPage()
+    createMarkdown.createFile(markDownText)
