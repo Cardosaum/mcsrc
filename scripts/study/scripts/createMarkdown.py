@@ -185,9 +185,11 @@ def tableRow(resource, collunmsFromDict=['name', 'duration', 'status'], collunms
     # write final string for this row
     for rID, p in resource.items():
         for col in collunms:
+            
+            typeResource = p['type']
+            
             if col == 'name':
 
-                typeResource = p['type']
                 symbolResource = ''
 
                 if typeResource == 'mooc':
@@ -197,7 +199,8 @@ def tableRow(resource, collunmsFromDict=['name', 'duration', 'status'], collunms
 
                 table += f"{symbolResource} [{str(p[col])}]({str(p['link'])}) {table_divisor}"
 
-            if col == 'duration' or col == 'status':
+            
+            elif col == 'duration' or col == 'status':
 
                 if typeResource:
                     typ = ''
@@ -208,6 +211,7 @@ def tableRow(resource, collunmsFromDict=['name', 'duration', 'status'], collunms
 
                     table += f"{str(p[col])} {typ} {table_divisor}"
 
+            
             else:
                 table += f"{str(p[col])} {table_divisor}"
         table = table.strip(' |')
