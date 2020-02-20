@@ -558,5 +558,21 @@
             "programming"
         ],
         "type": "mooc"
+    },
+    "id_0039": {
+        "duration": -1,
+        "link": "https://www.bioinformaticsalgorithms.org/read-the-book",
+        "main_category": "Bioinformatics",
+        "name": "Bioinformatics Algorithms",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Bioinformatics",
+            "Algorithms",
+            "Computer Science",
+            "Biology",
+            "Computational Biology"
+        ],
+        "type": "book"
     }
 }

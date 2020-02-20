@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd $HOME/mcs/study/code/python/mcsrc/scripts/study/scripts
+
+python3 addResource.py

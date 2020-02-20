@@ -10,7 +10,7 @@
 
 </p>
 
-> Last Update: 14:49:05, 17/02/2020
+> Last Update: 08:57:44, 20/02/2020
 
 
 
@@ -18,6 +18,7 @@
 
 - [Algorithms](#algorithms)
 - [Big Data](#big-data)
+- [Bioinformatics](#bioinformatics)
 - [Convex Optimization](#convex-optimization)
 - [Data Science](#data-science)
 - [Data Wrangling](#data-wrangling)
@@ -63,6 +64,13 @@ Courses | Duration | Status | Percentage
 :-- | :--: | :--: | :--:
 :globe_with_meridians: [Intro to Hadoop and MapReduce](https://www.udacity.com/course/intro-to-hadoop-and-mapreduce--ud617) | 4 weeks | 0 weeks | 0.00%
 :globe_with_meridians: [Deploying a Hadoop Cluster](https://www.udacity.com/course/deploying-a-hadoop-cluster--ud1000) | 3 weeks | 0 weeks | 0.00%
+
+
+### Bioinformatics
+
+Courses | Duration | Status | Percentage
+:-- | :--: | :--: | :--:
+:book: [Bioinformatics Algorithms](https://www.bioinformaticsalgorithms.org/read-the-book) | ? pages | 0 pages | 0.00%
 
 
 ### Convex Optimization
