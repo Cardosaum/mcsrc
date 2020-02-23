@@ -10,7 +10,7 @@
 
 </p>
 
-> Last Update: 09:49:00, 23/02/2020
+> Last Update: 19:13:39, 23/02/2020
 
 
 
@@ -45,7 +45,7 @@ Courses | Duration | Status | Percentage
 :book: [Linear Algebra - Foundations to Frontiers](https://www.edx.org/course/linear-algebra-foundations-frontiers-utaustinx-ut-5-04x#!) | 469 pages | 40 pages | 8.53%
 :book: [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/) | 548 pages | 68 pages | 12.41%
 :book: [R for Data Science](https://r4ds.had.co.nz/introduction.html) | 520 pages | 40 pages | 7.69%
-:book: [Org Mode Compact Guide](https://orgmode.org/#docs) | 42 pages | 0 pages | 0.00%
+:book: [Org Mode Compact Guide](https://orgmode.org/#docs) | 42 pages | 6 pages | 14.29%
 ---
 
 ## Courses on the Rodmap
