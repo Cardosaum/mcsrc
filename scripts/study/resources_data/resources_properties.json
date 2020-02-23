@@ -574,5 +574,35 @@
             "Computational Biology"
         ],
         "type": "book"
+    },
+    "id_0040": {
+        "duration": 42,
+        "link": "https://orgmode.org/#docs",
+        "main_category": "Emacs",
+        "name": "Org Mode Compact Guide",
+        "status": 0,
+        "studying_now": true,
+        "tags": [
+            "Emacs",
+            "Org Mode",
+            "Computer Science",
+            "Editors"
+        ],
+        "type": "book"
+    },
+    "id_0041": {
+        "duration": 305,
+        "link": "https://orgmode.org/#docs",
+        "main_category": "Emacs",
+        "name": "The Org Manual",
+        "status": 0,
+        "studying_now": false,
+        "tags": [
+            "Emacs",
+            "Org Mode",
+            "Computer Science",
+            "Editors"
+        ],
+        "type": "book"
     }
 }
