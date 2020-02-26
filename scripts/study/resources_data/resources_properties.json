@@ -581,7 +581,7 @@
         "main_category": "Emacs",
         "name": "Org Mode Compact Guide",
         "status": 6,
-        "studying_now": true,
+        "studying_now": false,
         "tags": [
             "Emacs",
             "Org Mode",
