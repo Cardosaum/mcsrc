@@ -10,7 +10,7 @@
 
 </p>
 
-> Last Update: 22:04:06, 25/02/2020
+> Last Update: 19:06:37, 26/02/2020
 
 
 
@@ -44,7 +44,7 @@ Courses | Duration | Status | Percentage
 :book: [HandsOn Programming with R](https://rstudio-education.github.io/hopr/) | 247 pages | 62 pages | 25.10%
 :book: [Linear Algebra - Foundations to Frontiers](https://www.edx.org/course/linear-algebra-foundations-frontiers-utaustinx-ut-5-04x#!) | 469 pages | 40 pages | 8.53%
 :book: [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/) | 548 pages | 68 pages | 12.41%
-:book: [R for Data Science](https://r4ds.had.co.nz/introduction.html) | 520 pages | 40 pages | 7.69%
+:book: [R for Data Science](https://r4ds.had.co.nz/introduction.html) | 520 pages | 41 pages | 7.88%
 ---
 
 ## Courses on the Rodmap
