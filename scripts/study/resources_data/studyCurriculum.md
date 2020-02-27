@@ -10,7 +10,7 @@
 
 </p>
 
-> Last Update: 19:06:37, 26/02/2020
+> Last Update: 15:46:43, 27/02/2020
 
 
 
@@ -40,7 +40,7 @@
 
 Courses | Duration | Status | Percentage
 :-- | :--: | :--: | :--:
-:book: [OpenIntro Statistics](https://www.openintro.org/book/os/) | 422 pages | 32 pages | 7.58%
+:book: [OpenIntro Statistics](https://www.openintro.org/book/os/) | 422 pages | 45 pages | 10.66%
 :book: [HandsOn Programming with R](https://rstudio-education.github.io/hopr/) | 247 pages | 62 pages | 25.10%
 :book: [Linear Algebra - Foundations to Frontiers](https://www.edx.org/course/linear-algebra-foundations-frontiers-utaustinx-ut-5-04x#!) | 469 pages | 40 pages | 8.53%
 :book: [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/) | 548 pages | 68 pages | 12.41%
