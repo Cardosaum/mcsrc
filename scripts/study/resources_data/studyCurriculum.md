@@ -10,7 +10,7 @@
 
 </p>
 
-> Last Update: 18:32:35, 27/02/2020
+> Last Update: 23:18:07, 28/02/2020
 
 
 
@@ -27,6 +27,7 @@
 - [Emacs](#emacs)
 - [Linear Algebra](#linear-algebra)
 - [Machine Learning](#machine-learning)
+- [Math](#math)
 - [Multivariable Calculus](#multivariable-calculus)
 - [Natural Language Processing](#natural-language-processing)
 - [Probability And Statistics](#probability-and-statistics)
@@ -45,6 +46,8 @@ Courses | Duration | Status | Percentage
 :book: [Linear Algebra - Foundations to Frontiers](https://www.edx.org/course/linear-algebra-foundations-frontiers-utaustinx-ut-5-04x#!) | 469 pages | 40 pages | 8.53%
 :book: [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/) | 548 pages | 68 pages | 12.41%
 :book: [R for Data Science](https://r4ds.had.co.nz/introduction.html) | 520 pages | 41 pages | 7.88%
+:book: [Org Mode Compact Guide](https://orgmode.org/#docs) | 42 pages | 6 pages | 14.29%
+:book: [Mathematical Reasoning: Writing and Proof](https://www.tedsundstrom.com/mathematical-reasoning-writing-and-proof) | 589 pages | 0 pages | 0.00%
 ---
 
 ## Courses on the Rodmap
@@ -115,7 +118,6 @@ Courses | Duration | Status | Percentage
 
 Courses | Duration | Status | Percentage
 :-- | :--: | :--: | :--:
-:book: [Org Mode Compact Guide](https://orgmode.org/#docs) | 42 pages | 6 pages | 14.29%
 :book: [The Org Manual](https://orgmode.org/#docs) | 305 pages | 0 pages | 0.00%
 
 
@@ -134,6 +136,13 @@ Courses | Duration | Status | Percentage
 :globe_with_meridians: [Learning From Data (Introductory Machine Learning)](https://www.edx.org/course/learning-data-introductory-machine-caltechx-cs1156x) | 10 weeks | 0 weeks | 0.00%
 :globe_with_meridians: [Statistical Learning](https://lagunita.stanford.edu/courses/HumanitiesSciences/StatLearning/Winter2016/about) | ? weeks | 0 weeks | 0.00%
 :globe_with_meridians: [Stanford's Machine Learning Course](https://www.coursera.org/learn/machine-learning) | 11 weeks | 0 weeks | 0.00%
+
+
+### Math
+
+Courses | Duration | Status | Percentage
+:-- | :--: | :--: | :--:
+:book: [Book of Proof](https://www.people.vcu.edu/~rhammack/BookOfProof/) | 380 pages | 0 pages | 0.00%
 
 
 ### Multivariable Calculus
