@@ -40,7 +40,7 @@
         "main_category":"Linear Algebra",
         "name":"Linear Algebra - Foundations to Frontiers",
         "status":40,
-        "studying_now":true,
+        "studying_now":false,
         "subject_path":"",
         "subject_sequence":"",
         "tags":[
@@ -57,7 +57,7 @@
         "main_category":"Python",
         "name":"Python Data Science Handbook",
         "status":68,
-        "studying_now":true,
+        "studying_now":false,
         "subject_path":"code",
         "subject_sequence":3,
         "tags":[
@@ -76,7 +76,7 @@
         "main_category":"R",
         "name":"R for Data Science",
         "status":41,
-        "studying_now":true,
+        "studying_now":false,
         "subject_path":"code",
         "subject_sequence":2,
         "tags":[
