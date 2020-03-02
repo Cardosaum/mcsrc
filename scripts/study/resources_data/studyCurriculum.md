@@ -10,7 +10,7 @@
 
 </p>
 
-> Last Update: 23:19:33, 28/02/2020
+> Last Update: 20:36:54, 02/03/2020
 
 
 
@@ -19,6 +19,7 @@
 - [Algorithms](#algorithms)
 - [Big Data](#big-data)
 - [Bioinformatics](#bioinformatics)
+- [Computational Biology](#computational-biology)
 - [Convex Optimization](#convex-optimization)
 - [Data Science](#data-science)
 - [Data Wrangling](#data-wrangling)
@@ -72,6 +73,13 @@ Courses | Duration | Status | Percentage
 Courses | Duration | Status | Percentage
 :-- | :--: | :--: | :--:
 :book: [Bioinformatics Algorithms](https://www.bioinformaticsalgorithms.org/read-the-book) | ? pages | 0 pages | 0.00%
+
+
+### Computational Biology
+
+Courses | Duration | Status | Percentage
+:-- | :--: | :--: | :--:
+:globe_with_meridians: [Machine Learning in Genomics](https://stellar.mit.edu/S/course/6/fa19/6.047/index.html,https://www.youtube.com/playlist?list=PLypiXJdtIca6U5uQOCHjP9Op3gpa177fK) | 15 weeks | 0 weeks | 0.00%
 
 
 ### Convex Optimization
