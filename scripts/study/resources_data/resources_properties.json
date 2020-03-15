@@ -741,5 +741,21 @@
             "Omics"
         ],
         "type": "mooc"
+    },
+    "id_0045": {
+        "duration": -1,
+        "link": "https://serialmentor.com/dataviz/index.html",
+        "main_category": "Data Science",
+        "name": "Fundamentals of Data Visualization",
+        "status": 0,
+        "studying_now": false,
+        "subject_path": "",
+        "subject_sequence": -1,
+        "tags": [
+            "Data Science",
+            "Data Visualization",
+            "Estatistics"
+        ],
+        "type": "book"
     }
 }

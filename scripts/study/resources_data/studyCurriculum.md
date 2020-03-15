@@ -10,7 +10,7 @@
 
 </p>
 
-> Last Update: 20:36:54, 02/03/2020
+> Last Update: 08:40:02, 15/03/2020
 
 
 
@@ -96,6 +96,7 @@ Courses | Duration | Status | Percentage
 :globe_with_meridians: [Introduction to Data Science](https://www.coursera.org/course/datasci) | 8 weeks | 0 weeks | 0.00%
 :globe_with_meridians: [Data Science - CS109 from Harvard](http://cs109.github.io/2015/) | 12 weeks | 0 weeks | 0.00%
 :globe_with_meridians: [The Analytics Edge](https://www.edx.org/course/analytics-edge-mitx-15-071x-2) | 12 weeks | 0 weeks | 0.00%
+:book: [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/index.html) | ? pages | 0 pages | 0.00%
 
 
 ### Data Wrangling
