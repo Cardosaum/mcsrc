@@ -757,5 +757,22 @@
             "Estatistics"
         ],
         "type": "book"
+    },
+    "id_0046": {
+        "duration": -1,
+        "link": "https://r-graphics.org/index.html",
+        "main_category": "R",
+        "name": "R Graphics Cookbook",
+        "status": 0,
+        "studying_now": false,
+        "subject_path": "",
+        "subject_sequence": -1,
+        "tags": [
+            "Data Visualization",
+            "R",
+            "Computer Science",
+            "Estatistics"
+        ],
+        "type": "book"
     }
 }

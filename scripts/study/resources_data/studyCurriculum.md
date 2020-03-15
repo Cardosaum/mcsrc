@@ -10,7 +10,7 @@
 
 </p>
 
-> Last Update: 08:40:02, 15/03/2020
+> Last Update: 08:53:21, 15/03/2020
 
 
 
@@ -194,6 +194,7 @@ Courses | Duration | Status | Percentage
 Courses | Duration | Status | Percentage
 :-- | :--: | :--: | :--:
 :book: [R for Data Science](https://r4ds.had.co.nz/introduction.html) | 520 pages | 41 pages | 7.88%
+:book: [R Graphics Cookbook](https://r-graphics.org/index.html) | ? pages | 0 pages | 0.00%
 
 
 ### Single Variable Calculus
