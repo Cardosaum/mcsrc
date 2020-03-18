@@ -710,7 +710,7 @@
         "main_category": "Math",
         "name": "Mathematical Reasoning: Writing and Proof",
         "status": 0,
-        "studying_now": true,
+        "studying_now": false,
         "subject_path": "math",
         "subject_sequence": 1,
         "tags": [

@@ -10,7 +10,7 @@
 
 </p>
 
-> Last Update: 08:53:21, 15/03/2020
+> Last Update: 20:48:16, 18/03/2020
 
 
 
@@ -45,7 +45,6 @@ Courses | Duration | Status | Percentage
 :book: [OpenIntro Statistics](https://www.openintro.org/book/os/) | 422 pages | 45 pages | 10.66%
 :book: [HandsOn Programming with R](https://rstudio-education.github.io/hopr/) | 247 pages | 66 pages | 26.72%
 :book: [Org Mode Compact Guide](https://orgmode.org/#docs) | 42 pages | 6 pages | 14.29%
-:book: [Mathematical Reasoning: Writing and Proof](https://www.tedsundstrom.com/mathematical-reasoning-writing-and-proof) | 589 pages | 0 pages | 0.00%
 ---
 
 ## Courses on the Rodmap
@@ -150,6 +149,7 @@ Courses | Duration | Status | Percentage
 Courses | Duration | Status | Percentage
 :-- | :--: | :--: | :--:
 :book: [Book of Proof](https://www.people.vcu.edu/~rhammack/BookOfProof/) | 380 pages | 0 pages | 0.00%
+:book: [Mathematical Reasoning: Writing and Proof](https://www.tedsundstrom.com/mathematical-reasoning-writing-and-proof) | 589 pages | 0 pages | 0.00%
 
 
 ### Multivariable Calculus
