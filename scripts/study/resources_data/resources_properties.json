@@ -23,7 +23,7 @@
         "main_category": "R",
         "name": "HandsOn Programming with R",
         "status": 66,
-        "studying_now": true,
+        "studying_now": false,
         "subject_path": "code",
         "subject_sequence": 1,
         "tags": [
@@ -56,8 +56,8 @@
         "link": "https://jakevdp.github.io/PythonDataScienceHandbook/",
         "main_category": "Python",
         "name": "Python Data Science Handbook",
-        "status": 68,
-        "studying_now": false,
+        "status": 76,
+        "studying_now": true,
         "subject_path": "code",
         "subject_sequence": 3,
         "tags": [

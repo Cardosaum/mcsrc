@@ -10,7 +10,7 @@
 
 </p>
 
-> Last Update: 20:48:16, 18/03/2020
+> Last Update: 11:49:24, 28/03/2020
 
 
 
@@ -43,7 +43,7 @@
 Courses | Duration | Status | Percentage
 :-- | :--: | :--: | :--:
 :book: [OpenIntro Statistics](https://www.openintro.org/book/os/) | 422 pages | 45 pages | 10.66%
-:book: [HandsOn Programming with R](https://rstudio-education.github.io/hopr/) | 247 pages | 66 pages | 26.72%
+:book: [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/) | 548 pages | 76 pages | 13.87%
 :book: [Org Mode Compact Guide](https://orgmode.org/#docs) | 42 pages | 6 pages | 14.29%
 ---
 
@@ -181,7 +181,6 @@ Courses | Duration | Status | Percentage
 
 Courses | Duration | Status | Percentage
 :-- | :--: | :--: | :--:
-:book: [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/) | 548 pages | 68 pages | 12.41%
 :globe_with_meridians: [Introduction to Computer Science and Programming Using Python](https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-7) | 9 weeks | 0 weeks | 0.00%
 :globe_with_meridians: [Introduction to Computational Thinking and Data Science](https://www.edx.org/course/introduction-computational-thinking-data-mitx-6-00-2x-3) | 10 weeks | 0 weeks | 0.00%
 :globe_with_meridians: [Introduction to Data Science in Python](https://www.coursera.org/learn/python-data-analysis?specialization=data-science-python) | 4 weeks | 0 weeks | 0.00%
@@ -193,6 +192,7 @@ Courses | Duration | Status | Percentage
 
 Courses | Duration | Status | Percentage
 :-- | :--: | :--: | :--:
+:book: [HandsOn Programming with R](https://rstudio-education.github.io/hopr/) | 247 pages | 66 pages | 26.72%
 :book: [R for Data Science](https://r4ds.had.co.nz/introduction.html) | 520 pages | 41 pages | 7.88%
 :book: [R Graphics Cookbook](https://r-graphics.org/index.html) | ? pages | 0 pages | 0.00%
 
