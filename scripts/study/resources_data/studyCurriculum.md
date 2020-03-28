@@ -10,7 +10,7 @@
 
 </p>
 
-> Last Update: 11:52:37, 28/03/2020
+> Last Update: 11:53:54, 28/03/2020
 
 
 
@@ -45,7 +45,7 @@ Courses | Duration | Status | Percentage
 :book: [OpenIntro Statistics](https://www.openintro.org/book/os/) | 422 pages | 45 pages | 10.66%
 :book: [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/) | 548 pages | 76 pages | 13.87%
 :book: [Org Mode Compact Guide](https://orgmode.org/#docs) | 42 pages | 6 pages | 14.29%
-:book: [Calculus 1](https://openstax.org/details/books/calculus-volume-1) | 873 pages | 396 pages | 45.36%
+:book: [Calculus 1](https://openstax.org/details/books/calculus-volume-1) | 769 pages | 396 pages | 51.50%
 ---
 
 ## Courses on the Rodmap
