@@ -774,5 +774,22 @@
             "Estatistics"
         ],
         "type": "book"
+    },
+    "id_0047": {
+        "duration": 873,
+        "link": "https://openstax.org/details/books/calculus-volume-1",
+        "main_category": "Math",
+        "name": "Calculus 1",
+        "status": 396,
+        "studying_now": true,
+        "subject_path": "math",
+        "subject_sequence": -1,
+        "tags": [
+            "math",
+            "calculus",
+            "introductory",
+            "calculus1"
+        ],
+        "type": "book"
     }
 }
