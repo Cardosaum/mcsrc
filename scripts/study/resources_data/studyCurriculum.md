@@ -10,7 +10,7 @@
 
 </p>
 
-> Last Update: 16:42:59, 02/04/2020
+> Last Update: 12:04:24, 09/04/2020
 
 
 
@@ -43,7 +43,7 @@
 Courses | Duration | Status | Percentage
 :-- | :--: | :--: | :--:
 :book: [OpenIntro Statistics](https://www.openintro.org/book/os/) | 422 pages | 45 pages | 10.66%
-:book: [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/) | 548 pages | 90 pages | 16.42%
+:book: [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/) | 548 pages | 96 pages | 17.52%
 :book: [Org Mode Compact Guide](https://orgmode.org/#docs) | 42 pages | 6 pages | 14.29%
 :book: [Calculus 1](https://openstax.org/details/books/calculus-volume-1) | 769 pages | 407 pages | 52.93%
 ---
