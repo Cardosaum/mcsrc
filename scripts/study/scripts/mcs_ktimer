@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pkill -f "bash\b.*timer\b\s+[0-9]+\s+[hms]"
+pkill -f "mpv.*timer.*wav$"
+pkill rsibreak
